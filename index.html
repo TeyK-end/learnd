@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+  <html lang="vi">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Sơ Đồ Tư Duy — Học Nhanh</title>
+      <style>
+        :root {
+          --bg: #0b1020; /* nền tối dịu mắt */
+          --panel: #0f172a; /* slate-900 */
+          --muted: #1e293b; /* slate-800 */
+          --line: #334155; /* slate-700 */
+          --text: #e2e8f0; /* slate-200 */
+          --soft: #94a3b8; /* slate-400 */
+          --accent: #22c55e; /* green-500 */
+          --accent-2: #38bdf8; /* sky-400 */
+          --warn: #f59e0b; /* amber-500 */
+          --danger: #ef4444; /* red-500 */
+        }
+        * {
+          box-sizing: border-box;
+        }
+        html,
+        body {
+          height: 100%;
+        }
+        body {
+          margin: 0;
+          font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Ubuntu,
+            "Helvetica Neue", Arial;
+          color: var(--text);
+          background: radial-gradient(
+            1200px 800px at 70% -20%,
+            #172554 0%,
+            #0b1020 50%,
+            #070a17 100%
+          );
+          overflow: hidden;
+        }
+        .app {
+          display: flex;
+          flex-direction: row;
+          height: 100vh;
+          overflow: hidden; /* Prevent overflow issues */
+        }
+        aside {
+          width: 320px;
+          min-width: 200px;
+          position: relative;
+          overflow-y: auto; /* Ensure vertical scrolling */
+          flex-shrink: 0; /* Prevent shrinking of the sidebar */
+        }
+        .brand {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+        .brand svg {
+          width: 28px;
+          height: 28px;
+        }
+        .brand h1 {
+          font-size: 18px;
+          margin: 0;
+        }
+        .toolbar {
+          display: grid;
+          grid-template-columns: 1fr auto;
+          gap: 8px;
+          align-items: center;
+        }
+        .btn {
+          border: none;
+          border-radius: 12px;
+          background: var(--muted);
+          color: var(--text);
+          padding: 8px 12px;
+          cursor: pointer;
+        }
+        .btn:hover {
+          filter: brightness(1.1);
+        }
+        .btn.small {
+          padding: 6px 10px;
+          font-size: 12px;
+        }
+        .input {
+          width: 100%;
+          padding: 10px 12px;
+          border-radius: 12px;
+          border: 1px solid #12203c;
+          background: #0a1327;
+          color: var(--text);
+        }
+        .pill {
+          font-size: 12px;
+          padding: 4px 8px;
+          border-radius: 999px;
+          background: #0a142b;
+          border: 1px solid #13213e;
+          color: var(--soft);
+        }
+        .row {
+          display: flex;
+          gap: 8px;
+          align-items: center;
+        }
+        .stack {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+        .panel {
+          background: #0a142b;
+          border: 1px solid #13213e;
+          border-radius: 16px;
+          padding: 10px;
+        }
+
+        /* Canvas khu vực bản đồ */
+        .stage {
+          position: relative;
+          background: transparent;
+        }
+        .hud {
+          position: absolute;
+          inset: 12px;
+          pointer-events: none;
+        }
+        .hud .float {
+          pointer-events: auto;
+        }
+        .zoombar {
+          position: absolute;
+          right: 8px;
+          top: 8px;
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+        }
+
+        svg {
+          width: 100%;
+          height: 100%;
+          display: block;
+        }
+        .link {
+          stroke: var(--line);
+          stroke-width: 2px;
+          opacity: 0.75;
+        }
+        .node {
+          cursor: grab;
+        }
+        .node:hover .bubble {
+          filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.4));
+        }
+        .bubble {
+          fill: url(#bubbleGrad);
+          stroke: #1b2a48;
+          stroke-width: 1.2;
+        }
+        .label {
+          fill: var(--text);
+          font-size: 12px;
+          text-anchor: middle;
+          dominant-baseline: central;
+          pointer-events: none;
+        }
+        .badge {
+          fill: #0b162e;
+          stroke: #22406e;
+          stroke-width: 1;
+        }
+
+        /* Sidebar danh sách & flashcard */
+        .list {
+          max-height: 32vh;
+          overflow: auto;
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+        }
+        .list .item {
+          display: flex;
+          gap: 8px;
+          align-items: center;
+          padding: 8px;
+          border-radius: 12px;
+          background: #09132a;
+          border: 1px solid #13213e;
+        }
+        .list .item .meta {
+          font-size: 12px;
+          color: var(--soft);
+        }
+        .item .right {
+          margin-left: auto;
+          display: flex;
+          gap: 6px;
+          align-items: center;
+        }
+
+        .fc {
+          display: grid;
+          gap: 10px;
+        }
+        .fc .card {
+          background: linear-gradient(145deg, #0b162e, #0a142b);
+          border: 1px solid #13213e;
+          border-radius: 16px;
+          padding: 20px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 16px;
+          transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
+        }
+        .fc .card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        .fc .big {
+          font-size: 22px;
+          font-weight: bold;
+          text-align: center;
+          color: var(--accent);
+        }
+        .fc .image-container {
+          max-width: 100%;
+          max-height: 250px;
+          overflow: hidden;
+          border-radius: 12px;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+        .fc .muted {
+          font-size: 14px;
+          text-align: center;
+          color: var(--soft);
+        }
+        .fc .row {
+          justify-content: center;
+        }
+        .fc .btn {
+          padding: 10px 16px;
+          font-size: 14px;
+          border-radius: 8px;
+        }
+
+        /* Tooltip gợi ý phím tắt */
+        .kbd {
+          font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas;
+          background: #0d1a33;
+          border: 1px solid #1c335c;
+          border-radius: 6px;
+          padding: 2px 6px;
+          font-size: 11px;
+        }
+
+        /* Modal đơn giản */
+        dialog {
+          background: #071129;
+          color: var(--text);
+          border: 1px solid #1a2a4a;
+          border-radius: 16px;
+          width: min(720px, 86vw);
+        }
+        dialog textarea {
+          width: 100%;
+          min-height: 240px;
+          resize: vertical;
+          background: #061026;
+          color: var(--text);
+          border: 1px solid #142549;
+          border-radius: 12px;
+          padding: 10px;
+        }
+        dialog::backdrop {
+          background: rgba(2, 6, 23, 0.6);
+        }
+
+        .zoom-controls {
+          position: absolute;
+          top: 8px;
+          right: 8px;
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          pointer-events: auto;
+        }
+        .zoom-controls button {
+          border: none;
+          border-radius: 8px;
+          background: var(--muted);
+          color: var(--text);
+          padding: 6px 10px;
+          cursor: pointer;
+          font-size: 14px;
+        }
+        .zoom-controls button:hover {
+          filter: brightness(1.1);
+        }
+        #zoomLabel {
+          font-size: 14px;
+          text-align: center;
+          color: var(--text);
+        }
+
+        /* Custom scrollbar styles */
+        ::-webkit-scrollbar {
+          width: 8px;
+          height: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+          background: var(--muted);
+          border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+          background: var(--soft);
+        }
+
+        ::-webkit-scrollbar-track {
+          background: #0a1327;
+          border-radius: 4px;
+        }
+
+        /* Flashcard image styling */
+        .flashcard-image {
+          max-width: 100%;
+          max-height: 200px;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: transform 0.2s ease;
+        }
+        .flashcard-image:hover {
+          transform: scale(1.05);
+        }
+
+        /* Zoomed image overlay styling with scroll support */
+        .zoomed-image-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.8);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 1000;
+          overflow: auto; /* Enable scrolling */
+        }
+        .zoomed-image-container {
+          position: relative;
+          max-width: 90%;
+          max-height: 90%;
+        }
+        .zoomed-image-container img {
+          width: 100%;
+          height: auto;
+          border-radius: 8px;
+        }
+        .zoomed-image-container .close-zoom {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background: var(--danger);
+          color: var(--text);
+          border: none;
+          border-radius: 8px;
+          padding: 6px 12px;
+          cursor: pointer;
+        }
+        .zoomed-image-container .close-zoom:hover {
+          filter: brightness(1.2);
+        }
+
+        /* Resizable sidebar styles */
+        aside {
+          width: 320px;
+          min-width: 200px;
+          position: relative;
+          overflow-y: auto; /* Ensure vertical scrolling */
+          flex-shrink: 0; /* Prevent shrinking of the sidebar */
+        }
+        .resizer {
+          width: 5px;
+          cursor: ew-resize;
+          background: var(--muted);
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 10;
+        }
+        .resizer:hover {
+          background: var(--soft);
+        }
+        main.stage {
+          flex-grow: 1; /* Ensure the main content fills the remaining space */
+          overflow: hidden; /* Prevent horizontal overflow */
+        }
+      </style>
+    </head>
+    <body>
+      <div class="app">
+        <aside>
+          <div class="brand">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 3l2.5 5 5 .7-3.7 3.6.9 5-4.7-2.6L7.3 17l.9-5L4.5 8.7l5-.7L12 3z"
+                stroke="url(#g)"
+                stroke-width="1.2"
+              />
+              <defs>
+                <linearGradient id="g" x1="0" y1="0" x2="24" y2="24">
+                  <stop stop-color="#22c55e" />
+                  <stop offset="1" stop-color="#38bdf8" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <h1>Sơ đồ tư duy — Học Nhanh</h1>
+          </div>
+
+          <div class="toolbar">
+            <input
+              id="search"
+              class="input"
+              placeholder="Tìm nút (Ctrl/Cmd + K)"
+            />
+            <button
+              id="btnReset"
+              class="btn small"
+              title="Đưa về vị trí mặc định"
+            >
+              Reset
+            </button>
+          </div>
+
+          <div class="panel stack">
+            <div class="row" style="justify-content: space-between">
+              <span class="pill">Danh sách nút</span>
+              <div class="tiny">
+                Nhấn
+                <span class="kbd">Space</span>
+                để gập/mở nhánh
+              </div>
+            </div>
+            <div id="list" class="list"></div>
+          </div>
+          <div class="panel stack">
+            <span class="pill">Thêm nút mới</span>
+            <div class="stack">
+              <input
+                id="inputTitle"
+                class="input"
+                placeholder="Tiêu đề (bắt buộc)"
+              />
+              <input
+                id="inputIcon"
+                class="input"
+                placeholder="Emoji hoặc link ảnh"
+              />
+              <input id="inputNote" class="input" placeholder="Ghi chú" />
+              <label>Hình ảnh (URL): <input id="newImage" type="text" placeholder="http://..." /></label>
+              <label>Hoặc tải ảnh: <input type="file" id="nodeImage" accept="image/*" /></label>
+              <button id="btnAddNode" class="btn">+ Thêm nút</button>
+            </div>
+          </div>
+
+          <div class="panel stack">
+            <div class="row" style="justify-content: space-between">
+              <span class="pill">Chế độ thẻ nhớ (Flashcard)</span>
+              <div class="tiny">Chọn một nút &gt; Học</div>
+            </div>
+            <div class="row">
+              <select id="subtreeSelect" class="input" style="flex: 1"></select>
+              <button id="btnStudy" class="btn">Học</button>
+            </div>
+            <div id="fc" class="fc"></div>
+          </div>
+
+          <div class="row">
+            <button id="btnExport" class="btn" title="Xuất JSON">
+              Xuất JSON
+            </button>
+            <button id="btnImport" class="btn" title="Nhập JSON">
+              Nhập JSON
+            </button>
+            <button
+              id="btnNew"
+              class="btn"
+              title="Thêm nút con cho nút đang chọn"
+            >
+              + Nút
+            </button>
+          </div>
+
+          <div class="tiny">
+            Mẹo: kéo giữ
+            <span class="kbd">Ctrl</span>
+            để zoom bằng cuộn chuột. Kéo nền để pan. Kéo nút để đổi vị trí thủ
+            công.
+          </div>
+          <div class="resizer"></div>
+        </aside>
+
+        <main class="stage">
+          <!-- HUD: zoom + hint -->
+          <div class="hud">
+            <div class="float zoombar">
+              <button class="btn small" id="zoomOut">-</button>
+              <div class="pill" id="zoomLabel">100%</div>
+              <button class="btn small" id="zoomIn">+</button>
+              <button class="btn small" id="zoomReset">Reset</button>
+            </div>
+          </div>
+
+          <!-- SVG vẽ sơ đồ -->
+          <svg id="svg" aria-label="mindmap canvas">
+            <defs>
+              <linearGradient id="bubbleGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.22" />
+                <stop offset="100%" stop-color="#22c55e" stop-opacity="0.22" />
+              </linearGradient>
+              <marker
+                id="arrow"
+                viewBox="0 0 10 10"
+                refX="10"
+                refY="5"
+                markerWidth="6"
+                markerHeight="6"
+                orient="auto-start-reverse"
+              >
+                <path d="M0,0 L10,5 L0,10 z" fill="#2a3d60" />
+              </marker>
+            </defs>
+            <g id="viewport" transform="translate(0,0)">
+              <g id="mindmap" transform="scale(1)">
+                <g id="links"></g>
+                <g id="nodes"></g>
+              </g>
+            </g>
+          </svg>
+        </main>
+      </div>
+
+      <!-- Modal Export/Import -->
+      <dialog id="modal">
+        <form method="dialog" class="stack">
+          <div
+            class="row"
+            style="justify-content: space-between; align-items: center"
+          >
+            <strong id="modalTitle">JSON</strong>
+            <div class="tiny">
+              Mẫu schema: { id, title, note, icon, collapsed, learned, x, y,
+              children:[] }
+            </div>
+          </div>
+          <textarea id="modalText"></textarea>
+          <div class="row" style="justify-content: space-between">
+            <button class="btn" value="cancel">Đóng</button>
+            <div class="row">
+              <button id="modalCopy" type="button" class="btn">Copy</button>
+              <button
+                id="modalApply"
+                type="button"
+                class="btn"
+                style="background: var(--accent)"
+              >
+                Áp dụng
+              </button>
+            </div>
+          </div>
+        </form>
+      </dialog>
+
+      <!-- Modal Thêm nút mới -->
+      <dialog id="modalNew">
+        <form method="dialog" class="stack">
+          <strong>Thêm nút mới</strong>
+          <input id="newTitle" class="input" placeholder="Tiêu đề" required />
+          <input id="newIcon" class="input" placeholder="Emoji hoặc link ảnh" />
+          <input id="newNote" class="input" placeholder="Ghi chú" />
+          <input id="newImage" type="file" accept="image/*" />
+          <menu>
+            <button value="cancel">Hủy</button>
+            <button id="btnAddNodeModal" value="default">Thêm</button>
+          </menu>
+        </form>
+      </dialog>
+
+      <script>
+        // ==========================
+        // DỮ LIỆU MẪU (có thể sửa)
+        // ==========================
+        const sampleData = {
+          id: "root",
+          title: "Mô học",
+          icon: "📚",
+          note: "4 loại mô cơ bản",
+          x: 0,
+          y: 0,
+          collapsed: false,
+          learned: false,
+          children: [
+            {
+              id: "epi",
+              title: "Mô biểu mô",
+              img: "images/epithelial.png",
+              note: "Che phủ & hấp thu",
+              children: [
+                {
+                  id: "simple",
+                  title: "Biểu mô đơn",
+                  img: "images/simple_epi.png",
+                  note: "1 lớp tế bào",
+                },
+                {
+                  id: "stratified",
+                  title: "Biểu mô tầng",
+                  img: "images/stratified_epi.png",
+                  note: "Nhiều lớp tế bào",
+                },
+              ],
+            },
+            {
+              id: "conn",
+              title: "Mô liên kết",
+              img: "images/connective.png",
+              note: "Đỡ, nâng, liên kết",
+            },
+            {
+              id: "mus",
+              title: "Mô cơ",
+              img: "images/muscle.png",
+              note: "Cử động",
+            },
+            {
+              id: "ner",
+              title: "Mô thần kinh",
+              img: "images/nerve.png",
+              note: "Dẫn truyền",
+            },
+          ],
+        };
+
+        // ==========================
+        // STATE & LƯU TRỮ
+        // ==========================
+        const state = {
+          data: null,
+          selectedId: null,
+          scale: 1,
+          tx: 0,
+          ty: 0,
+          dragging: null, // {id, dx, dy}
+          panning: false,
+          ctrlZoomOnly: true,
+        };
+
+        const $ = (sel) => document.querySelector(sel);
+        const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+
+        const STORAGE_KEY = "mindmap_unity_v1";
+        function load() {
+          try {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            state.data = saved ? JSON.parse(saved) : sampleData;
+          } catch (err) {
+            state.data = sampleData;
+          }
+        }
+        function save() {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(state.data));
+        }
+
+        // ==========================
+        // HỖ TRỢ SƠ ĐỒ: duyệt cây, tìm nút
+        // ==========================
+        function walk(node, fn, parent = null, depth = 0) {
+          fn(node, parent, depth);
+          (node.children || []).forEach((c) => walk(c, fn, node, depth + 1));
+        }
+        function findById(id) {
+          let res = null;
+          walk(state.data, (n) => {
+            if (n.id === id) res = n;
+          });
+          return res;
+        }
+        function flatten() {
+          const arr = [];
+          walk(state.data, (n, p, d) => arr.push({ n, p, d }));
+          return arr;
+        }
+
+        // ==========================
+        // BỐ CỤC: vòng tròn đồng tâm đơn giản
+        // ==========================
+        function autoLayout() {
+          const layers = [];
+          walk(state.data, (n, p, d) => {
+            layers[d] = layers[d] || [];
+            layers[d].push(n);
+          });
+          const R = 180; // bán kính giữa các vòng
+          layers.forEach((layer, d) => {
+            const radius = d * R;
+            const count = Math.max(1, layer.length);
+            layer.forEach((node, i) => {
+              // Nếu đã kéo thả thủ công thì giữ nguyên x,y
+              if (
+                typeof node.x === "number" &&
+                typeof node.y === "number" &&
+                !(node.x === 0 && node.y === 0)
+              )
+                return;
+
+              const angle = (i / count) * Math.PI * 2 + (d % 2 ? 0.2 : 0);
+              node.x = Math.cos(angle) * radius;
+              node.y = Math.sin(angle) * radius;
+            });
+          });
+        }
+
+        // ==========================
+        // VẼ SVG
+        // ==========================
+        const svg = $("#svg");
+        const viewport = $("#viewport");
+        const gLinks = $("#links");
+        const gNodes = $("#nodes");
+
+        function render() {
+          autoLayout();
+          // Links
+          gLinks.innerHTML = "";
+          gNodes.innerHTML = "";
+          const FR = [];
+          walk(state.data, (n, p, d) => {
+            if (p) {
+              const path = document.createElementNS(
+                "http://www.w3.org/2000/svg",
+                "path"
+              );
+              path.setAttribute("class", "link");
+              const c = curve(p.x, p.y, n.x, n.y);
+              path.setAttribute("d", c);
+              path.setAttribute("marker-end", "url(#arrow)");
+              gLinks.appendChild(path);
+            }
+            FR.push({ n, p, d });
+          });
+
+          FR.forEach(({ n, p, d }) => {
+            if (p && p.collapsed) return; // ẩn node khi cha gập
+            const nodeG = el("g", {
+              class: "node",
+              transform: `translate(${n.x},${n.y})`,
+              "data-id": n.id,
+            });
+            // bong bóng
+            const r = Math.max(34 - d * 2, 20);
+            const bubble = el("circle", { class: "bubble", r, cx: 0, cy: 0 });
+            nodeG.appendChild(bubble);
+            // icon or image
+            if (n.img) {
+              const img = document.createElementNS(
+                "http://www.w3.org/2000/svg",
+                "image"
+              );
+              img.setAttributeNS("http://www.w3.org/1999/xlink", "href", n.img);
+              img.setAttribute("x", -30);
+              img.setAttribute("y", r + 8);
+              img.setAttribute("width", 100);
+              img.setAttribute("height", 100);
+              nodeG.appendChild(img);
+            } else {
+              const icon = el("text", { class: "label", x: 0, y: -8 });
+              icon.textContent = n.icon || "📌";
+              nodeG.appendChild(icon);
+            }
+            // tiêu đề
+            const title = el("text", { class: "label", x: 0, y: r - 10 });
+            title.textContent = n.title;
+            nodeG.appendChild(title);
+            // badge learned
+            if (n.learned) {
+              const bx = r - 6,
+                by = -r + 6;
+              const bR = 9;
+              const badge = el("circle", {
+                class: "badge",
+                cx: bx,
+                cy: by,
+                r: bR,
+              });
+              nodeG.appendChild(badge);
+              const check = el("text", { class: "label", x: bx, y: by });
+              check.textContent = "✓";
+              nodeG.appendChild(check);
+            }
+            // viền chọn
+            if (state.selectedId === n.id) {
+              const sel = el("circle", {
+                r: r + 6,
+                cx: 0,
+                cy: 0,
+                fill: "none",
+                stroke: "var(--accent-2)",
+                "stroke-width": 2,
+                "stroke-dasharray": "4 4",
+              });
+              nodeG.appendChild(sel);
+            }
+            gNodes.appendChild(nodeG);
+          });
+          refreshList();
+          refreshSubtreeSelect();
+          updateZoomLabel();
+        }
+
+        function curve(x1, y1, x2, y2) {
+          const dx = (x2 - x1) * 0.3,
+            dy = (y2 - y1) * 0.3;
+          return `M ${x1} ${y1} C ${x1 + dx} ${y1 + dy}, ${x2 - dx} ${
+            y2 - dy
+          }, ${x2} ${y2}`;
+        }
+
+        function el(name, attrs) {
+          const e = document.createElementNS("http://www.w3.org/2000/svg", name);
+          for (const k in attrs) {
+            e.setAttribute(k, attrs[k]);
+          }
+          return e;
+        }
+
+        // ==========================
+        // TƯƠNG TÁC: chọn, kéo thả, pan/zoom, toggle
+        // ==========================
+        gNodes.addEventListener("pointerdown", (e) => {
+          const g = e.target.closest("g.node");
+          if (!g) return;
+          const id = g.getAttribute("data-id");
+          state.selectedId = id;
+          const n = findById(id);
+          state.dragging = { id, dx: e.clientX, dy: e.clientY, sx: n.x, sy: n.y };
+          g.setPointerCapture(e.pointerId);
+          render();
+          save();
+        });
+        gNodes.addEventListener("pointermove", (e) => {
+          if (!state.dragging) return;
+          const { id, dx, dy, sx, sy } = state.dragging;
+          const n = findById(id);
+          const k = 1 / state.scale;
+          n.x = sx + (e.clientX - dx) * k;
+          n.y = sy + (e.clientY - dy) * k;
+          render();
+        });
+        gNodes.addEventListener("pointerup", () => {
+          state.dragging = null;
+          save();
+        });
+
+        // dblclick để gập/mở
+        gNodes.addEventListener("dblclick", (e) => {
+          const g = e.target.closest("g.node");
+          if (!g) return;
+          const id = g.getAttribute("data-id");
+          const n = findById(id);
+          n.collapsed = !n.collapsed;
+          render();
+          save();
+        });
+
+        // pan nền
+        let panStart = null;
+        svg.addEventListener("pointerdown", (e) => {
+          if (e.target.closest("g.node")) return;
+          panStart = { x: e.clientX - state.tx, y: e.clientY - state.ty };
+          state.panning = true;
+        });
+        svg.addEventListener("pointermove", (e) => {
+          if (!state.panning) return;
+          state.tx = e.clientX - panStart.x;
+          state.ty = e.clientY - panStart.y;
+          applyView();
+        });
+        window.addEventListener("pointerup", () => {
+          state.panning = false;
+        });
+
+        // zoom bằng bánh xe (giữ Ctrl nếu ctrlZoomOnly=true)
+        svg.addEventListener(
+          "wheel",
+          (e) => {
+            if (state.ctrlZoomOnly && !e.ctrlKey) return; // yêu cầu giữ Ctrl
+            e.preventDefault();
+            const delta = Math.sign(e.deltaY) * -0.1; // đảo chiều cảm giác tự nhiên hơn
+            zoomAt(delta, e.clientX, e.clientY);
+          },
+          { passive: false }
+        );
+
+        // nút zoom
+        $("#zoomIn").onclick = () => zoomAt(+0.2, window.innerWidth - 40, 40);
+        $("#zoomOut").onclick = () => zoomAt(-0.2, window.innerWidth - 40, 40);
+
+        function zoomAt(amount, cx, cy) {
+          const prev = state.scale;
+          const next = clamp(prev + amount, 0.3, 2.5);
+          // zoom vào điểm trỏ
+          const pt = screenToWorld(cx, cy);
+          state.scale = next;
+          const pt2 = worldToScreen(pt.x, pt.y);
+          state.tx += cx - pt2.x;
+          state.ty += cy - pt2.y;
+          applyView();
+          updateZoomLabel();
+        }
+
+        function updateZoomLabel() {
+          $("#zoomLabel").textContent = Math.round(state.scale * 100) + "%";
+        }
+
+        function applyView() {
+          viewport.setAttribute(
+            "transform",
+            `translate(${state.tx},${state.ty}) scale(${state.scale})`
+          );
+        }
+
+        function screenToWorld(x, y) {
+          return {
+            x: (x - state.tx) / state.scale,
+            y: (y - state.ty) / state.scale,
+          };
+        }
+        function worldToScreen(x, y) {
+          return { x: x * state.scale + state.tx, y: y * state.scale + state.ty };
+        }
+
+        // ==========================
+        // SIDEBAR: danh sách, tìm kiếm, flashcards
+        // ==========================
+        const listEl = $("#list");
+        const searchEl = $("#search");
+
+        function refreshList() {
+          const q = (searchEl.value || "").toLowerCase().trim();
+          listEl.innerHTML = "";
+          walk(state.data, (n, p, d) => {
+            if (p && p.collapsed) return;
+            if (
+              q &&
+              !(
+                n.title.toLowerCase().includes(q) ||
+                (n.note || "").toLowerCase().includes(q)
+              )
+            )
+              return;
+            const item = document.createElement("div");
+            item.className = "item";
+            item.innerHTML = `
+            <div style="font-size:20px">${n.icon || "📌"}</div>
+            <div>
+              <div><strong>${
+                n.title
+              }</strong> <span class="tiny">• độ sâu ${d}</span></div>
+              <div class="meta">${n.note || ""}</div>
+            </div>
+            <div class="right">
+              <label class="tiny row" style="gap:6px"><input type="checkbox" ${
+                n.learned ? "checked" : ""
+              } data-act="toggle"/> Đã học</label>
+              <button class="btn small" data-act="center">Đến</button>
+              <button class="btn small" data-act="collapse">${
+                n.collapsed ? "Mở" : "Gập"
+              }</button>
+              <button class="btn small" style="background:var(--danger)" data-act="delete">Xoá</button>
+            </div>`;
+            item.querySelector('[data-act="toggle"]').onchange = () => {
+              n.learned = !n.learned;
+              save();
+              render();
+            };
+            item.querySelector('[data-act="center"]').onclick = () => {
+              state.selectedId = n.id;
+              focusNode(n);
+            };
+            item.querySelector('[data-act="collapse"]').onclick = () => {
+              n.collapsed = !n.collapsed;
+              save();
+              render();
+            };
+            listEl.appendChild(item);
+          });
+        }
+
+        searchEl.addEventListener("input", refreshList);
+        // Ctrl/Cmd+K focus search
+        window.addEventListener("keydown", (e) => {
+          const tag = document.activeElement.tagName.toLowerCase();
+          const typing =
+            tag === "input" ||
+            tag === "textarea" ||
+            document.activeElement.isContentEditable;
+
+          // Nếu không gõ trong input thì mới toggle node bằng Space
+          if (!typing && e.key === " " && state.selectedId) {
+            e.preventDefault();
+            const n = findById(state.selectedId);
+            n.collapsed = !n.collapsed;
+            render();
+            save();
+          }
+        });
+
+        function focusNode(n) {
+          const pt = worldToScreen(n.x, n.y);
+          // di chuyển để node nằm giữa
+          state.tx += window.innerWidth * 0.6 - pt.x;
+          state.ty += window.innerHeight * 0.5 - pt.y;
+          applyView();
+          render();
+          save();
+        }
+
+        // Flashcards
+        const fc = $("#fc");
+        const subtreeSelect = $("#subtreeSelect");
+        function refreshSubtreeSelect() {
+          const opts = [];
+          walk(state.data, (n) => {
+            opts.push(n);
+          });
+          subtreeSelect.innerHTML = opts
+            .map(
+              (o) =>
+                `<option value="${o.id}">${o.icon || "•"} ${o.title}</option>`
+            )
+            .join("");
+          if (state.selectedId) {
+            subtreeSelect.value = state.selectedId;
+          }
+        }
+
+        $("#btnStudy").onclick = () => {
+          const id = subtreeSelect.value;
+          const root = findById(id);
+          const cards = [];
+          walk(root, (n) => {
+            if (n !== root) cards.push(n);
+          });
+          shuffle(cards);
+          let i = 0;
+          renderCard();
+
+          function renderCard() {
+            if (cards.length === 0) {
+              fc.innerHTML = '<div class="tiny">Không có thẻ trong nhánh này.</div>';
+              return;
+            }
+            const c = cards[i];
+            fc.innerHTML = "";
+            const wrap = document.createElement("div");
+            wrap.className = "card";
+            wrap.innerHTML = `
+              <div class="big">${c.icon || "📌"} ${c.title}</div>
+              ${
+                c.img
+                  ? `<div class="image-container">
+                       <img src="${c.img}" alt="${c.title}" class="flashcard-image" />
+                     </div>`
+                  : ""
+              }
+              <div class="muted">${c.note || "(chưa có ghi chú)"}</div>
+              <div class="row" style="gap:10px; flex-wrap:wrap">
+                <span class="tag">Độ sâu: ${depthOf(c.id)}</span>
+                <span class="tag">ID: ${c.id}</span>
+                <span class="tag">${c.learned ? "ĐÃ HỌC" : "CHƯA HỌC"}</span>
+              </div>
+              <div class="row" style="margin-top:16px; gap:12px">
+                <button class="btn" id="prev">← Trước</button>
+                <button class="btn" id="next">Tiếp →</button>
+                <button class="btn" id="ok">Đánh dấu đã biết ✓</button>
+                <button class="btn" id="open">Tới nút</button>
+              </div>`;
+            fc.appendChild(wrap);
+
+            // Add zoom functionality for the image
+            const img = wrap.querySelector(".flashcard-image");
+            if (img) {
+              img.onclick = () => {
+                const zoomedImg = document.createElement("div");
+                zoomedImg.className = "zoomed-image-overlay";
+                zoomedImg.innerHTML = `
+                  <div class="zoomed-image-container">
+                    <img src="${c.img}" alt="${c.title}" />
+                    <button class="btn close-zoom">Đóng</button>
+                  </div>`;
+                document.body.appendChild(zoomedImg);
+
+                zoomedImg.querySelector(".close-zoom").onclick = () => {
+                  document.body.removeChild(zoomedImg);
+                };
+              };
+            }
+
+            $("#prev").onclick = () => {
+              i = (i - 1 + cards.length) % cards.length;
+              renderCard();
+            };
+            $("#next").onclick = () => {
+              i = (i + 1) % cards.length;
+              renderCard();
+            };
+            $("#ok").onclick = () => {
+              c.learned = true;
+              save();
+              renderCard();
+              render();
+            };
+            $("#open").onclick = () => {
+              state.selectedId = c.id;
+              focusNode(c);
+            };
+          }
+        };
+
+        function depthOf(id) {
+          let dep = 0;
+          walk(state.data, (n, p, d) => {
+            if (n.id === id) dep = d;
+          });
+          return dep;
+        }
+        function shuffle(a) {
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+
+        // ==========================
+        // EXPORT / IMPORT / NEW
+        // ==========================
+        const modal = $("#modal");
+        const modalText = $("#modalText");
+        const modalTitle = $("#modalTitle");
+        $("#btnExport").onclick = () => {
+          modalTitle.textContent = "Xuất JSON";
+          modalText.value = JSON.stringify(state.data, null, 2);
+          modal.showModal();
+        };
+        $("#btnImport").onclick = () => {
+          modalTitle.textContent = "Nhập JSON";
+          modalText.value = JSON.stringify(state.data, null, 2);
+          modal.showModal();
+        };
+        $("#btnNew").onclick = () => {
+          const sel = state.selectedId ? findById(state.selectedId) : state.data;
+          sel.children = sel.children || [];
+
+          const nid = `n_${Math.random().toString(36).slice(2, 8)}`;
+          const offsetY = sel.children.length % 2 === 0 ? -60 : 60; // Alternate up/down
+          sel.children.push({
+            id: nid,
+            title: "Nút mới",
+            icon: "📝",
+            note: "Ghi chú mới",
+            x: sel.x + 120,
+            y: sel.y + offsetY,
+            collapsed: false,
+            learned: false,
+            children: [],
+          });
+
+          state.selectedId = nid;
+          save();
+          render();
+        };
+        $("#modalCopy").onclick = () => {
+          navigator.clipboard.writeText(modalText.value);
+        };
+        $("#modalApply").onclick = () => {
+          try {
+            const obj = JSON.parse(modalText.value);
+            // giữ vị trí camera hiện tại
+            state.data = obj;
+            save();
+            render();
+            modal.close();
+          } catch (err) {
+            alert("JSON không hợp lệ: " + err.message);
+          }
+        };
+
+        // ==========================
+        // RESET VIEW
+        // ==========================
+        $("#btnReset").onclick = () => {
+          state.scale = 1;
+          state.tx = window.innerWidth * 0.25;
+          state.ty = window.innerHeight * 0.5;
+          applyView();
+          render();
+        };
+
+        // thêm nút từ bảng nhập
+        $("#btnAddNode").onclick = () => {
+          const title = $("#inputTitle").value.trim();
+          const icon = $("#inputIcon").value.trim();
+          const note = $("#inputNote").value.trim();
+          const imgUrl = $("#newImage").value.trim();
+          const fileInput = $("#nodeImage");
+          const file = fileInput.files[0];
+
+          if (!title) {
+            alert("Bạn phải nhập tiêu đề!");
+            return;
+          }
+
+          const sel = state.selectedId ? findById(state.selectedId) : state.data;
+          sel.children = sel.children || [];
+
+          const nid = `n_${Math.random().toString(36).slice(2, 8)}`;
+          const newNode = {
+            id: nid,
+            title,
+            icon: icon.startsWith("http") ? "" : icon,
+            img: icon.startsWith("http") ? icon : null,
+            note,
+            image: imgUrl || null,
+            x: sel.x + 120,
+            y: sel.y,
+            collapsed: false,
+            learned: false,
+            children: [],
+          };
+
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              newNode.img = e.target.result; // Base64 image
+              sel.children.push(newNode);
+              state.selectedId = nid;
+              save();
+              render();
+            };
+            reader.readAsDataURL(file);
+          } else {
+            sel.children.push(newNode);
+            state.selectedId = nid;
+            save();
+            render();
+          }
+
+          // reset form
+          $("#inputTitle").value = "";
+          $("#inputIcon").value = "";
+          $("#inputNote").value = "";
+          $("#newImage").value = "";
+          fileInput.value = "";
+        };
+
+        // ==========================
+        // KHỞI TẠO
+        // ==========================
+        function init() {
+          load();
+          // điểm nhìn mặc định: lệch sang phải để chừa sidebar
+          state.tx = window.innerWidth * 0.25;
+          state.ty = window.innerHeight * 0.5;
+          state.scale = 1;
+          applyView();
+          render();
+          // chọn root ban đầu
+          state.selectedId = state.data.id;
+          refreshList();
+          refreshSubtreeSelect();
+          // phím tắt tick learned
+          window.addEventListener("keydown", (e) => {
+            if (e.key.toLowerCase() === "l" && state.selectedId) {
+              const n = findById(state.selectedId);
+              n.learned = !n.learned;
+              save();
+              render();
+            }
+          });
+          // responsive: render lại khi resize
+          window.addEventListener("resize", () => {
+            render();
+          });
+        }
+
+        init();
+
+        function deleteNode(id) {
+          // Nếu xoá root → tạo root mới
+          if (id === state.data.id) {
+            if (confirm("Bạn có chắc muốn xoá nút gốc và tạo lại mới?")) {
+              state.data = {
+                id: "root_" + Math.random().toString(36).slice(2, 6),
+                title: "Nút gốc mới",
+                icon: "🌱",
+                note: "Đây là nút gốc mới",
+                x: 0,
+                y: 0,
+                collapsed: false,
+                learned: false,
+                children: [],
+              };
+              state.selectedId = state.data.id;
+              save();
+              render();
+            }
+            return;
+          }
+
+          // Xoá các nút con bình thường
+          let deleted = false;
+          walk(state.data, (n, p) => {
+            if (!n || !p || !p.children) return;
+            const idx = p.children.findIndex((c) => c.id === id);
+            if (idx !== -1) {
+              p.children.splice(idx, 1);
+              deleted = true;
+            }
+          });
+
+          if (deleted) {
+            state.selectedId = state.data.id; // sau khi xoá chọn lại root
+            save();
+            render();
+          }
+        }
+
+        function refreshList() {
+          const q = (searchEl.value || "").toLowerCase().trim();
+          listEl.innerHTML = "";
+          walk(state.data, (n, p, d) => {
+            if (p && p.collapsed) return;
+            if (
+              q &&
+              !(
+                n.title.toLowerCase().includes(q) ||
+                (n.note || "").toLowerCase().includes(q)
+              )
+            )
+              return;
+
+            const item = document.createElement("div");
+            item.className = "item";
+            item.innerHTML = `
+        <div style="font-size:20px">${n.icon || "📌"}</div>
+        <div>
+          <div><strong>${
+            n.title
+          }</strong> <span class="tiny">• độ sâu ${d}</span></div>
+          <div class="meta">${n.note || ""}</div>
+        </div>
+        <div class="right">
+          <label class="tiny row" style="gap:6px">
+            <input type="checkbox" ${
+              n.learned ? "checked" : ""
+            } data-act="toggle"/> Đã học
+          </label>
+          <button class="btn small" data-act="center">Đến</button>
+          <button class="btn small" data-act="collapse">${
+            n.collapsed ? "Mở" : "Gập"
+          }</button>
+          <button class="btn small" style="background:var(--danger)" data-act="delete">Xoá</button>
+        </div>`;
+
+            item.querySelector('[data-act="toggle"]').onchange = () => {
+              n.learned = !n.learned;
+              save();
+              render();
+            };
+            item.querySelector('[data-act="center"]').onclick = () => {
+              state.selectedId = n.id;
+              focusNode(n);
+            };
+            item.querySelector('[data-act="collapse"]').onclick = () => {
+              n.collapsed = !n.collapsed;
+              save();
+              render();
+            };
+            item.querySelector('[data-act="delete"]').onclick = () => {
+              if (confirm("Bạn có chắc muốn xoá nút này?")) {
+                deleteNode(n.id);
+              }
+            };
+
+            listEl.appendChild(item);
+          });
+        }
+
+        const modalNew = document.getElementById("modalNew");
+        document.getElementById("btnNew").onclick = () => modalNew.showModal();
+
+        document.getElementById("btnAddNodeModal").onclick = () => {
+          const title = document.getElementById("newTitle").value.trim();
+          const icon = document.getElementById("newIcon").value.trim();
+          const note = document.getElementById("newNote").value.trim();
+          const fileInput = document.getElementById("newImage");
+          const file = fileInput.files[0];
+
+          if (!title) {
+            alert("Bạn phải nhập tiêu đề!");
+            return;
+          }
+
+          const sel = state.selectedId ? findById(state.selectedId) : state.data;
+          sel.children = sel.children || [];
+
+          const nid = `n_${Math.random().toString(36).slice(2, 8)}`;
+          const offsetY = sel.children.length % 2 === 0 ? -60 : 60; // Alternate up/down
+          const newNode = {
+            id: nid,
+            title,
+            icon: icon.startsWith("http") ? "" : icon,
+            img: icon.startsWith("http") ? icon : null,
+            note,
+            x: sel.x + 120,
+            y: sel.y + offsetY,
+            collapsed: false,
+            learned: false,
+            children: [],
+          };
+
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              newNode.img = e.target.result; // Base64 image
+              sel.children.push(newNode);
+              state.selectedId = nid;
+              save();
+              render();
+              modalNew.close();
+            };
+            reader.readAsDataURL(file);
+          } else {
+            sel.children.push(newNode);
+            state.selectedId = nid;
+            save();
+            render();
+            modalNew.close();
+          }
+        };
+
+        // Add Reset button functionality
+        document.getElementById("zoomReset").onclick = () => {
+          state.scale = 1;
+          state.tx = window.innerWidth * 0.25;
+          state.ty = window.innerHeight * 0.5;
+          applyView();
+          render();
+        };
+
+        // Improved resizable sidebar functionality
+        const resizer = document.querySelector(".resizer");
+        const sidebar = document.querySelector("aside");
+        let isResizing = false;
+
+        resizer.addEventListener("mousedown", (e) => {
+          isResizing = true;
+          document.body.style.cursor = "ew-resize";
+          document.addEventListener("mousemove", resizeSidebar);
+          document.addEventListener("mouseup", stopResizing);
+        });
+
+        function resizeSidebar(e) {
+          if (!isResizing) return;
+          const newWidth = e.clientX - sidebar.getBoundingClientRect().left;
+          sidebar.style.width = `${Math.max(200, newWidth)}px`; // Minimum width is 200px
+        }
+
+        function stopResizing() {
+          isResizing = false;
+          document.body.style.cursor = "default";
+          document.removeEventListener("mousemove", resizeSidebar);
+          document.removeEventListener("mouseup", stopResizing);
+        }
+      </script>
+    </body>
+  </html>
