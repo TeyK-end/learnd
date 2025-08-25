@@ -1497,6 +1497,34 @@
           document.removeEventListener("mousemove", resizeSidebar);
           document.removeEventListener("mouseup", stopResizing);
         }
+
+        let lastTouchDistance = null;
+
+        svg.addEventListener("touchstart", (e) => {
+          if (e.touches.length === 2) {
+            lastTouchDistance = getTouchDistance(e.touches);
+          }
+        });
+
+        svg.addEventListener("touchmove", (e) => {
+          if (e.touches.length === 2 && lastTouchDistance !== null) {
+            e.preventDefault();
+            const currentDistance = getTouchDistance(e.touches);
+            const delta = (currentDistance - lastTouchDistance) / 200; // Adjust sensitivity
+            zoomAt(delta, e.touches[0].clientX, e.touches[0].clientY);
+            lastTouchDistance = currentDistance;
+          }
+        }, { passive: false });
+
+        svg.addEventListener("touchend", () => {
+          lastTouchDistance = null;
+        });
+
+        function getTouchDistance(touches) {
+          const dx = touches[0].clientX - touches[1].clientX;
+          const dy = touches[0].clientY - touches[1].clientY;
+          return Math.sqrt(dx * dx + dy * dy);
+        }
       </script>
     </body>
   </html>
