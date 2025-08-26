@@ -1,0 +1,1781 @@
+{
+  "id": "root",
+  "title": "Các loại mô chính trong cơ thể người",
+  "icon": "🌳",
+  "img": "images/tissue_root.jpg",
+  "note": "Tổng hợp 5 loại mô chính trong cơ thể người",
+  "x": 2,
+  "y": 0,
+  "collapsed": false,
+  "learned": false,
+  "children": [
+    {
+      "id": "epi",
+      "title": "Mô biểu mô",
+      "icon": "🧫",
+      "img": "images/epi.png",
+      "note": "Biểu mô phủ + Biểu mô tuyến",
+      "x": 1200,
+      "y": -60,
+      "collapsed": false,
+      "learned": false,
+      "questions": [
+        {
+          "type": "multiple",
+          "question": "Mô biểu mô chia thành mấy loại chính?",
+          "options": ["2", "3", "4", "5"],
+          "answer": "2",
+          "img_answer": "images/epi.png"
+        },
+        {
+          "type": "fill",
+          "question": "Hai loại mô biểu mô chính là gì?",
+          "answer": "Biểu mô phủ và Biểu mô tuyến",
+          "img_answer": "images/epi.png"
+        }
+      ],
+      "children": [
+        {
+          "id": "epi_structure_1",
+          "title": "Tổ chức tế bào",
+          "icon": "🔬",
+          "img": "images/epi_structure_1.png",
+          "note": "Các TB biểu mô thường đứng sát nhau, tạo thành lớp và tựa trên màng đáy, ngăn cách với mô liên kết.",
+          "x": 1200,
+          "y": -190,
+          "collapsed": false,
+          "learned": false,
+          "questions": [
+            {
+              "type": "multiple",
+              "question": "Tế bào biểu mô có đặc điểm gì về cách sắp xếp?",
+              "options": ["Đứng xa nhau", "Tạo thành lớp và tựa trên màng đáy", "Không liên kết với nhau", "Nằm trong mạch máu"],
+              "answer": "Tạo thành lớp và tựa trên màng đáy",
+              "img_answer": "images/epi_structure_1.png"
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "epi_connections",
+          "title": "Liên kết tế bào",
+          "icon": "🔗",
+          "img": "images/epi_connections.png",
+          "note": "Các TB biểu mô liên kết với nhau rất chặt nhờ các hình thức liên kết phong phú.",
+          "x": 240,
+          "y": -140,
+          "collapsed": false,
+          "learned": false,
+          "questions": [
+            {
+              "type": "fill",
+              "question": "Tế bào biểu mô liên kết với nhau như thế nào?",
+              "answer": "Rất chặt nhờ các hình thức liên kết phong phú",
+              "img_answer": "images/epi_connections.png"
+            }
+          ],
+          "children": [
+            {
+              "id": "epi_conn_general",
+              "title": "Các hình thức liên kết",
+              "icon": "🔗",
+              "img": "images/epi_conn_general.png",
+              "note": "Các TB BM nằm sát liên kết rất chặt chẽ với nhiều hình thức.",
+              "x": 360,
+              "y": -200,
+              "collapsed": false,
+              "learned": false,
+              "questions": [
+                {
+                  "type": "multiple",
+                  "question": "Các hình thức liên kết của tế bào biểu mô có đặc điểm gì?",
+                  "options": ["Lỏng lẻo", "Chặt chẽ", "Không liên kết", "Chỉ liên kết với mạch máu"],
+                  "answer": "Chặt chẽ",
+                  "img_answer": "images/epi_conn_general.png"
+                }
+              ],
+              "children": []
+            },
+            {
+              "id": "epi_conn_point",
+              "title": "Liên kết điểm",
+              "icon": "🔲",
+              "img": "images/epi_conn_point.png",
+              "note": "Liên kết điểm: Khớp mộng, Liên kết khe, Thể liên kết, Thể bán liên kết.",
+              "x": 360,
+              "y": -160,
+              "collapsed": false,
+              "learned": false,
+              "questions": [
+                {
+                  "type": "fill",
+                  "question": "Liên kết điểm của biểu mô bao gồm những loại nào?",
+                  "answer": "Khớp mộng, Liên kết khe, Thể liên kết, Thể bán liên kết",
+                  "img_answer": "images/epi_conn_point.png"
+                }
+              ],
+              "children": [
+                {
+                  "id": "conn_desmosome",
+                  "title": "Thể bán liên kết",
+                  "icon": "🖼️",
+                  "img": "images/desmosome.png",
+                  "note": " ",
+                  "x": 480,
+                  "y": -180,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type": "multiple",
+                      "question": "Thể bán liên kết thuộc nhóm liên kết nào của biểu mô?",
+                      "options": ["Liên kết điểm", "Liên kết băng dài", "Liên kết với màng đáy", "Liên kết mạch máu"],
+                      "answer": "Liên kết điểm",
+                      "img_answer": "images/desmosome.png"
+                    }
+                  ],
+                  "children": []
+                },
+                {
+                  "id": "conn_gap",
+                  "title": "Liên kết khe",
+                  "icon": "🖼️",
+                  "img": "images/gap_junction.png",
+                  "note": " ",
+                  "x": 480,
+                  "y": -140,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type": "multiple",
+                      "question": "Liên kết khe thuộc nhóm liên kết nào của biểu mô?",
+                      "options": ["Liên kết điểm", "Liên kết băng dài", "Liên kết với màng đáy", "Liên kết mạch máu"],
+                      "answer": "Liên kết điểm",
+                      "img_answer": "images/gap_junction.png"
+                    }
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "id": "epi_conn_belt",
+              "title": "Liên kết băng dài",
+              "icon": "🔳",
+              "img": "images/epi_conn_belt.png",
+              "note": "Các liên kết băng dài: Vòng bịt, Vòng dính, Thể liên kết vòng.",
+              "x": 360,
+              "y": -120,
+              "collapsed": false,
+              "learned": false,
+              "questions": [
+                {
+                  "type": "fill",
+                  "question": "Liên kết băng dài của biểu mô bao gồm những loại nào?",
+                  "answer": "Vòng bịt, Vòng dính, Thể liên kết vòng",
+                  "img_answer": "images/epi_conn_belt.png"
+                }
+              ],
+              "children": [
+                {
+                  "id": "conn_tight",
+                  "title": "Vòng bịt/dải bịt",
+                  "icon": "🖼️",
+                  "img": "images/tight_junction.png",
+                  "note": " ",
+                  "x": 480,
+                  "y": -100,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type": "multiple",
+                      "question": "Vòng bịt/dải bịt thuộc nhóm liên kết nào của biểu mô?",
+                      "options": ["Liên kết điểm", "Liên kết băng dài", "Liên kết với màng đáy", "Liên kết mạch máu"],
+                      "answer": "Liên kết băng dài",
+                      "img_answer": "images/tight_junction.png"
+                    }
+                  ],
+                  "children": []
+                },
+                {
+                  "id": "conn_adherens",
+                  "title": "Vòng dính",
+                  "icon": "🖼️",
+                  "img": "images/adherens_junction.png",
+                  "note": " ",
+                  "x": 480,
+                  "y": -60,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type": "multiple",
+                      "question": "Vòng dính thuộc nhóm liên kết nào của biểu mô?",
+                      "options": ["Liên kết điểm", "Liên kết băng dài", "Liên kết với màng đáy", "Liên kết mạch máu"],
+                      "answer": "Liên kết băng dài",
+                      "img_answer": "images/adherens_junction.png"
+                    }
+                  ],
+                  "children": []
+                },
+                {
+                  "id": "conn_basement",
+                  "title": "Liên kết với màng đáy",
+                  "icon": "🔗",
+                  "img": "images/basement_membrane.png",
+                  "note": "Là cấu trúc liên kết gắn mặt đáy dính vào màng đáy bằng tơ trương lực.",
+                  "x": 480,
+                  "y": -20,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type": "fill",
+                      "question": "Liên kết với màng đáy của biểu mô sử dụng cấu trúc gì?",
+                      "answer": "Tơ trương lực",
+                      "img_answer": "images/basement_membrane.png"
+                    }
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "epi_characteristics",
+          "title": "Đặc điểm chung",
+          "icon": "📝",
+          "img": "images/epi_characteristics.png",
+          "note": "Biểu mô có tính phân cực. Trong biểu mô không có mạch máu. Phần lớn có khả năng tái tạo mạnh (đặc biệt là biểu mô phủ).",
+          "x": 240,
+          "y": -100,
+          "collapsed": false,
+          "learned": false,
+          "questions": [
+            {
+              "type": "multiple",
+              "question": "Đặc điểm nào sau đây đúng với biểu mô?",
+              "options": ["Có mạch máu", "Tính phân cực", "Không tái tạo", "Chỉ có ở da"],
+              "answer": "Tính phân cực",
+              "img_answer": "images/epi_characteristics.png"
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "epi_classification_function",
+          "title": "Phân loại và chức năng biểu mô",
+          "icon": "📋",
+          "img": "images/epi_classification_function.png",
+          "note": "Dựa vào chức năng, BM có 2 loại: Biểu mô phủ và biểu mô tuyến. Nguồn gốc: nội, trung và ngoại bì phôi. Chức năng: bảo vệ, hấp thu, tái hấp thu và chế tiết.",
+          "x": 240,
+          "y": -80,
+          "collapsed": false,
+          "learned": false,
+          "questions": [
+            {
+              "type": "fill",
+              "question": "Chức năng chính của biểu mô bao gồm những gì?",
+              "answer": "Bảo vệ, hấp thu, tái hấp thu và chế tiết",
+              "img_answer": "images/epi_classification_function.png"
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "epi_cell_shapes",
+          "title": "Hình dáng tế bào biểu mô",
+          "icon": "🧬",
+          "img": "images/cell_shapes.png",
+          "note": "Hình dáng, kích thước đa dạng tùy từng loại biểu mô, vị trí. TB biểu mô có 3 nhóm hình dáng chính: TB lát (mỏng trải rộng, nhân dẹt/thoi), TB khối vuông (ngang và cao tương đương, nhân hình cầu trung tâm), TB hình trụ (cao > ngang, nhân hơi bầu dục lệch đáy).",
+          "x": 240,
+          "y": -60,
+          "collapsed": false,
+          "learned": false,
+          "questions": [
+            {
+              "type": "multiple",
+              "question": "Tế bào biểu mô có mấy nhóm hình dáng chính?",
+              "options": ["2", "3", "4", "5"],
+              "answer": "3",
+              "img_answer": "images/cell_shapes.png"
+            }
+          ],
+          "children": [
+            {
+              "id": "cell_shapes_img",
+              "title": "Hình dáng, kích thước tế bào",
+              "icon": "🖼️",
+              "img": "images/cell_shapes_img.png",
+              "note": " ",
+              "x": 360,
+              "y": -80,
+              "collapsed": false,
+              "learned": false,
+              "questions": [
+                {
+                  "type": "fill",
+                  "question": "Ba nhóm hình dáng chính của tế bào biểu mô là gì?",
+                  "answer": "TB lát, TB khối vuông, TB hình trụ",
+                  "img_answer": "images/cell_shapes_img.png"
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "cover_epi",
+          "title": "Biểu mô phủ",
+          "icon": "🔬",
+          "img": "images/cover_epi.png",
+          "note": "Bao phủ mặt ngoài các bộ phận, cơ quan, cơ thể (da, phúc mạc); lót mặt trong các ống/khoang tự nhiên (ống tiêu hóa, đường hô hấp, tiết niệu).",
+          "x": 240,
+          "y": -40,
+          "collapsed": false,
+          "learned": false,
+          "questions": [
+            {
+              "type": "multiple",
+              "question": "Biểu mô phủ có chức năng chính là gì?",
+              "options": ["Che phủ và bảo vệ", "Tiết hormon", "Co cơ", "Dẫn truyền xung"],
+              "answer": "Che phủ và bảo vệ",
+              "img_answer": "images/cover_epi.png"
+            },
+            {
+              "type": "fill",
+              "question": "Biểu mô lát đơn giúp ...?",
+              "answer": "Giảm ma sát",
+              "img_answer": "images/simple_squamous.png"
+            }
+          ],
+          "children": [
+            {
+              "id": "cover_polarity",
+              "title": "Tính phân cực",
+              "icon": "⚖️",
+              "img": "images/cover_polarity.png",
+              "note": "Các TB BM phủ có tính phân cực rõ nhất. Phần trên và dưới có sự khác biệt về thành phần cấu tạo, chức năng. Cực ngọn hướng về phía môi trường/khoang; cực đáy tựa trên màng đáy/TB bên dưới. VD: TB đài ở BM đường hô hấp (cực ngọn chứa khối nhầy lớn, nhân nằm ở cực đáy).",
+              "x": 360,
+              "y": -240,
+              "collapsed": false,
+              "learned": false,
+              "questions": [
+                {
+                  "type": "fill",
+                  "question": "Tính phân cực của biểu mô phủ thể hiện qua đặc điểm gì?",
+                  "answer": "Phần trên và dưới có sự khác biệt về thành phần cấu tạo, chức năng",
+                  "img_answer": "images/cover_polarity.png"
+                }
+              ],
+              "children": []
+            },
+            {
+              "id": "cover_regeneration",
+              "title": "Tái tạo và biến đổi TB",
+              "icon": "🔄",
+              "img": "images/cover_regeneration.png",
+              "note": "BM thường xuyên được đổi mới TB. Các tổn thương BM thường phục hồi hoàn toàn do các TB có khả năng phân bào (TB gốc), đặc biệt BM phủ. VD: BM da, BM tiêu hóa. Một số nơi các TB BM biến đổi đặc biệt để thực hiện chức năng phù hợp. VD: TB cơ-BM ở các tuyến, TB Merkel ở da, TB nội tiết đường ruột.",
+              "x": 360,
+              "y": -200,
+              "collapsed": false,
+              "learned": false,
+              "questions": [
+                {
+                  "type": "multiple",
+                  "question": "Khả năng tái tạo của biểu mô phủ phụ thuộc vào loại tế bào nào?",
+                  "options": ["TB gốc", "TB sừng", "TB mạch máu", "TB thần kinh"],
+                  "answer": "TB gốc",
+                  "img_answer": "images/cover_regeneration.png"
+                }
+              ],
+              "children": [
+                {
+                  "id": "cover_regeneration_img",
+                  "title": "Tính tái tạo và biến đổi của tế bào",
+                  "icon": "🖼️",
+                  "img": "images/cover_regeneration_img.png",
+                  "note": " ",
+                  "x": 480,
+                  "y": -200,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type": "fill",
+                      "question": "Ví dụ về biểu mô phủ có khả năng tái tạo là gì?",
+                      "answer": "BM da, BM tiêu hóa",
+                      "img_answer": "images/cover_regeneration_img.png"
+                    }
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "id": "cover_surface_structures",
+              "title": "Các nhú và cấu trúc bề mặt",
+              "icon": "🌿",
+              "img": "images/surface_structures.png",
+              "note": "- Vi nhung mao\n- Lông chuyển\n- Lông giả\n- Mê đạo đáy",
+              "x": 360,
+              "y": -160,
+              "collapsed": false,
+              "learned": false,
+              "questions": [
+                {
+                  "type": "multiple",
+                  "question": "Cấu trúc nào sau đây thuộc các nhú và cấu trúc bề mặt của biểu mô?",
+                  "options": ["Vi nhung mao", "Tơ trương lực", "Keratin", "Hạt chế tiết"],
+                  "answer": "Vi nhung mao",
+                  "img_answer": "images/surface_structures.png"
+                }
+              ],
+              "children": [
+                {
+                  "id": "microvilli",
+                  "title": "Vi nhung mao",
+                  "icon": "🌾",
+                  "img": "images/microvilli.png",
+                  "note": "Nhánh/nếp bào tương đội màng TB ở mặt ngọn lồi lên => tăng diện tích bề mặt => có nhiều ở TB hấp thu. Cấu trúc ổn định nhờ sợi actin liên kết chặt với Fimbrin, espin, myosin. Ở BM ruột non mỗi TB hấp thu có 3000 vi nhung mao. Ở BM ống lượn gần (thận) vi nhung mao nhiều => bờ bàn chải ở mặt trong ống.",
+                  "x": 480,
+                  "y": -180,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type": "fill",
+                      "question": "Vi nhung mao giúp gì cho tế bào hấp thu?",
+                      "answer": "Tăng diện tích bề mặt",
+                      "img_answer": "images/microvilli.png"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "id": "microvilli_img",
+                      "title": "Vi nhung mao",
+                      "icon": "🖼️",
+                      "img": "images/microvilli_img.png",
+                      "note": " ",
+                      "x": 600,
+                      "y": -180,
+                      "collapsed": false,
+                      "learned": false,
+                      "questions": [
+                        {
+                          "type": "multiple",
+                          "question": "Cấu trúc nào giúp vi nhung mao ổn định?",
+                          "options": ["Sợi actin", "Sợi keratin", "Sợi collagen", "Sợi elastin"],
+                          "answer": "Sợi actin",
+                          "img_answer": "images/microvilli_img.png"
+                        }
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "id": "cilia",
+                  "title": "Lông chuyển",
+                  "icon": "🌬️",
+                  "img": "images/cilia.png",
+                  "note": "Dài 5-10μm, đk 0.2 μm, màng lông chuyển do màng TB ở cực ngọn nhô cao lên tạo thành. Cấu trúc bên trong gồm: 9 cặp vi ống ngoại vi và một cặp vi ống trung tâm xếp // chạy dọc. Mỗi cặp vi ống ngoại vi có một ống hoàn chỉnh (A) và một ống không hoàn chỉnh (B). Vi ống A có Protein vận động axonemal dynein => tạo chuyển động. Lông chuyển có ở BM đường hô hấp, tiêu hóa,…",
+                  "x": 480,
+                  "y": -140,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type": "multiple",
+                      "question": "Lông chuyển có cấu trúc bên trong gồm bao nhiêu cặp vi ống ngoại vi?",
+                      "options": ["7", "8", "9", "10"],
+                      "answer": "9",
+                      "img_answer": "images/cilia.png"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "id": "cilia_img_1",
+                      "title": "Lông chuyển",
+                      "icon": "🖼️",
+                      "img": "images/cilia_img_1.png",
+                      "note": " ",
+                      "x": 600,
+                      "y": -140,
+                      "collapsed": false,
+                      "learned": false,
+                      "questions": [
+                        {
+                          "type": "fill",
+                          "question": "Protein nào trong lông chuyển giúp tạo chuyển động?",
+                          "answer": "Axonemal dynein",
+                          "img_answer": "images/cilia_img_1.png"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "id": "cilia_img_2",
+                      "title": "Lông chuyển",
+                      "icon": "🖼️",
+                      "img": "images/cilia_img_2.png",
+                      "note": " ",
+                      "x": 600,
+                      "y": -100,
+                      "collapsed": false,
+                      "learned": false,
+                      "questions": [
+                        {
+                          "type": "multiple",
+                          "question": "Lông chuyển thường xuất hiện ở đâu?",
+                          "options": ["Đường hô hấp", "Da", "Xương", "Cơ"],
+                          "answer": "Đường hô hấp",
+                          "img_answer": "images/cilia_img_2.png"
+                        }
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "id": "pseudocilia",
+                  "title": "Lông giả",
+                  "icon": "🌱",
+                  "img": "images/pseudocilia.png",
+                  "note": "Lông giả còn gọi là lông bất động, dài 4-8 μm. Mềm hơn vi nhung mao do không có sự liên kết phong phú. Ngọn một số lông giả lân cận dính với nhau tạo các bó lông. Có ở: ống mào tinh, ống dẫn tinh…",
+                  "x": 480,
+                  "y": -100,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type": "fill",
+                      "question": "Lông giả còn được gọi là gì?",
+                      "answer": "Lông bất động",
+                      "img_answer": "images/pseudocilia.png"
+                    }
+                  ],
+                  "children": []
+                },
+                {
+                  "id": "basal_labyrinth",
+                  "title": "Mê đạo đáy",
+                  "icon": "🌀",
+                  "img": "images/basal_labyrinth.png",
+                  "note": "Chính là nếp gấp đáy => chỗ lõm vào màng bào tương của màng TB BM ở mặt đáy => tăng diện tích màng TB. Có ở TB BM thành ống lượn gần (thận).",
+                  "x": 480,
+                  "y": -60,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type": "multiple",
+                      "question": "Mê đạo đáy giúp gì cho tế bào biểu mô?",
+                      "options": ["Tăng diện tích màng TB", "Tạo chuyển động", "Tiết hormon", "Liên kết với mô liên kết"],
+                      "answer": "Tăng diện tích màng TB",
+                      "img_answer": "images/basal_labyrinth.png"
+                    }
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "id": "cover_types",
+              "title": "Các loại biểu mô phủ phổ biến",
+              "icon": "📋",
+              "img": "images/cover_types.png",
+              "note": "Trong cơ thể người có 9 loại BM phủ phổ biến dựa vào 2 yếu tố: Hình dáng TB lớp bề mặt (lát, vuông, trụ) và kết hợp về số hàng TB: Đơn (Lát đơn, vuông đơn, trụ đơn, trụ giả tầng có lông chuyển); Tầng (lát tầng sừng hóa/không sừng hóa, vuông tầng, trụ tầng, đa dạng tầng). Cách gọi BM tầng dựa vào lớp bề mặt.",
+              "x": 360,
+              "y": -120,
+              "collapsed": false,
+              "learned": false,
+              "questions": [
+                {
+                  "type": "multiple",
+                  "question": "Có bao nhiêu loại biểu mô phủ phổ biến trong cơ thể người?",
+                  "options": ["7", "8", "9", "10"],
+                  "answer": "9",
+                  "img_answer": "images/cover_types.png"
+                }
+              ],
+              "children": [
+                {
+                  "id": "cover_types_img",
+                  "title": "9 loại biểu mô phủ trong cơ thể",
+                  "icon": "🖼️",
+                  "img": "images/cover_types_img.png",
+                  "note": " ",
+                  "x": 480,
+                  "y": -120,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type": "fill",
+                      "question": "Các loại biểu mô phủ được phân loại dựa trên yếu tố nào?",
+                      "answer": "Hình dáng TB lớp bề mặt và số hàng TB",
+                      "img_answer": "images/cover_types_img.png"
+                    }
+                  ],
+                  "children": []
+                },
+                {
+                  "id": "simple_squamous",
+                  "title": "Biểu mô lát đơn",
+                  "icon": "🔬",
+                  "img": "images/simple_squamous.png",
+                  "note": "Cấu tạo gồm một hàng TB lát (dẹt) trải rộng, liên kết với nhau tựa trên màng đáy. BM lát đơn thường nhẵn bóng => hạn chế ma sát với các tạng. VD: BM lá thành, lá tạng, BM màng tim, BM mặt lòng hệ mạch (nội mô), lá ngoài bao Bowman.",
+                  "x": 480,
+                  "y": -100,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type": "fill",
+                      "question": "Biểu mô lát đơn thường xuất hiện ở đâu?",
+                      "answer": "BM lá thành, lá tạng, BM màng tim, nội mô, lá ngoài bao Bowman",
+                      "img_answer": "images/simple_squamous.png"
+                    }
+                  ],
+                  "children": []
+                },
+                {
+                  "id": "simple_cuboidal",
+                  "title": "Biểu mô vuông đơn",
+                  "icon": "🔬",
+                  "img": "images/simple_cuboidal.png",
+                  "note": "Gồm một hàng TB hình khối vuông hoặc tháp liên kết với nhau, tựa trên màng đáy. Nhân hình cầu, xếp thành hàng như chuỗi hạt. VD: BM bề mặt buồng trứng, BM ống thận, ống mật gan.",
+                  "x": 480,
+                  "y": -80,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type": "fill",
+                      "question": "Nhân của biểu mô vuông đơn có đặc điểm gì?",
+                      "answer": "Hình cầu, xếp thành hàng như chuỗi hạt",
+                      "img_answer": "images/simple_cuboidal.png"
+                    }
+                  ],
+                  "children": []
+                },
+                {
+                  "id": "simple_columnar",
+                  "title": "Biểu mô trụ đơn",
+                  "icon": "🔬",
+                  "img": "images/simple_columnar.png",
+                  "note": "Gồm một hàng TB hình trụ liên kết với nhau, tựa trên màng đáy. Nhân thường có hình bầu dục đứng, hơi lệch về cực đáy. VD: BM dạ dày, BM ruột non/già, ống góp lớn ở thận, vòi tử cung…",
+                  "x": 480,
+                  "y": -60,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type": "fill",
+                      "question": "Biểu mô trụ đơn thường xuất hiện ở đâu?",
+                      "answer": "BM dạ dày, BM ruột non/già, ống góp lớn ở thận, vòi tử cung",
+                      "img_answer": "images/simple_columnar.png"
+                    }
+                  ],
+                  "children": []
+                },
+                {
+                  "id": "pseudo_columnar",
+                  "title": "Biểu mô trụ giả tầng có lông chuyển",
+                  "icon": "🔬",
+                  "img": "images/pseudo_columnar.png",
+                  "note": "Tất cả các TB đều tựa trên màng đáy, kích thước TB cao thấp khác nhau => trên tiêu bản thấy nhân TB sắp xếp nhiều hàng. VD: lòng ống bài xuất lớn tuyến mang tai, đoạn niệu đạo dương vật. BM trụ giả tầng có lông chuyển, phổ biến hơn, lót mặt trong đường hô hấp. VD: khoang mũi, khí quản, phế quản…",
+                  "x": 480,
+                  "y": -40,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type": "multiple",
+                      "question": "Biểu mô trụ giả tầng có lông chuyển phổ biến ở đâu?",
+                      "options": ["Đường hô hấp", "Da", "Xương", "Cơ"],
+                      "answer": "Đường hô hấp",
+                      "img_answer": "images/pseudo_columnar.png"
+                    }
+                  ],
+                  "children": []
+                },
+                {
+                  "id": "stratified_squamous_nonker",
+                  "title": "Biểu mô lát tầng không sừng hóa",
+                  "icon": "🔬",
+                  "img": "images/stratified_squamous_nonker.png",
+                  "note": "Gặp ở các bề mặt ma sát thường xuyên. VD: BM lót thực quản, khoang miệng, dây thanh, giác mạc, lót âm đạo… Gồm 3 lớp: Lớp đáy, Lớp trung gian, Lớp bề mặt.",
+                  "x": 480,
+                  "y": -20,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type": "fill",
+                      "question": "Biểu mô lát tầng không sừng hóa gồm mấy lớp?",
+                      "answer": "3",
+                      "img_answer": "images/stratified_squamous_nonker.png"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "id": "stratified_squamous_nonker_img",
+                      "title": "Biểu mô lát tầng không sừng hóa",
+                      "icon": "🖼️",
+                      "img": "images/stratified_squamous_nonker_img.png",
+                      "note": " ",
+                      "x": 600,
+                      "y": -20,
+                      "collapsed": false,
+                      "learned": false,
+                      "questions": [
+                        {
+                          "type": "fill",
+                          "question": "Biểu mô lát tầng không sừng hóa thường gặp ở đâu?",
+                          "answer": "Thực quản, khoang miệng, dây thanh, giác mạc, âm đạo",
+                          "img_answer": "images/stratified_squamous_nonker_img.png"
+                        }
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "id": "stratified_squamous_ker",
+                  "title": "Biểu mô lát tầng sừng hóa",
+                  "icon": "🔬",
+                  "img": "images/stratified_squamous_ker.png",
+                  "note": "BM này là tầng biểu bì của da cấu tạo gồm 5 lớp.",
+                  "x": 480,
+                  "y": 0,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type": "multiple",
+                      "question": "Biểu mô lát tầng sừng hóa có bao nhiêu lớp?",
+                      "options": ["3", "4", "5", "6"],
+                      "answer": "5",
+                      "img_answer": "images/stratified_squamous_ker.png"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "id": "ker_base",
+                      "title": "Lớp đáy (lớp sinh sản)",
+                      "icon": "🔬",
+                      "img": "images/ker_base.png",
+                      "note": "Là một hàng TB hình trụ thấp/khối vuông, có nhiều TB gốc có khả năng phân chia tạo TB mới thay thế.",
+                      "x": 600,
+                      "y": 0,
+                      "collapsed": false,
+                      "learned": false,
+                      "questions": [
+                        {
+                          "type": "fill",
+                          "question": "Lớp đáy của biểu mô lát tầng sừng hóa có chức năng gì?",
+                          "answer": "Phân chia tạo TB mới thay thế",
+                          "img_answer": "images/ker_base.png"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "id": "ker_spinous",
+                      "title": "Lớp gai",
+                      "icon": "🔬",
+                      "img": "images/ker_spinous.png",
+                      "note": "Gồm nhiều TB sừng đa diện xen kẽ ít TB sắc tố, đại thực bào, lympho bào.",
+                      "x": 600,
+                      "y": 20,
+                      "collapsed": false,
+                      "learned": false,
+                      "questions": [
+                        {
+                          "type": "fill",
+                          "question": "Lớp gai của biểu mô lát tầng sừng hóa chứa các loại tế bào nào?",
+                          "answer": "TB sừng đa diện, TB sắc tố, đại thực bào, lympho bào",
+                          "img_answer": "images/ker_spinous.png"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "id": "ker_granular",
+                      "title": "Lớp hạt",
+                      "icon": "🔬",
+                      "img": "images/ker_granular.png",
+                      "note": "Nằm trên lớp gai, gồm vài hàng TB sừng dẹt, bào tương chứa nhiều keratohyalin bắt màu đậm trên tiêu bản.",
+                      "x": 600,
+                      "y": 40,
+                      "collapsed": false,
+                      "learned": false,
+                      "questions": [
+                        {
+                          "type": "fill",
+                          "question": "Bào tương của lớp hạt chứa chất gì?",
+                          "answer": "Keratohyalin",
+                          "img_answer": "images/ker_granular.png"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "id": "ker_lucidum",
+                      "title": "Lớp bóng",
+                      "icon": "🔬",
+                      "img": "images/ker_lucidum.png",
+                      "note": "Gồm vài hàng TB dẹt nén chặt với nhau, đa số TB đã chết, vùng da mỏng không có lớp bóng.",
+                      "x": 600,
+                      "y": 60,
+                      "collapsed": false,
+                      "learned": false,
+                      "questions": [
+                        {
+                          "type": "multiple",
+                          "question": "Lớp bóng của biểu mô lát tầng sừng hóa có đặc điểm gì?",
+                          "options": ["TB còn sống", "TB đa số đã chết", "Chứa mạch máu", "Không có ở da"],
+                          "answer": "TB đa số đã chết",
+                          "img_answer": "images/ker_lucidum.png"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "id": "ker_corneum",
+                      "title": "Lớp sừng",
+                      "icon": "🔬",
+                      "img": "images/ker_corneum.png",
+                      "note": "Không còn cấu trúc TB, chất eleidin biến thành keratin (sừng).",
+                      "x": 600,
+                      "y": 80,
+                      "collapsed": false,
+                      "learned": false,
+                      "questions": [
+                        {
+                          "type": "fill",
+                          "question": "Lớp sừng của biểu mô lát tầng sừng hóa chứa chất gì?",
+                          "answer": "Keratin",
+                          "img_answer": "images/ker_corneum.png"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "id": "stratified_squamous_ker_img",
+                      "title": "Biểu mô lát tầng sừng hóa",
+                      "icon": "🖼️",
+                      "img": "images/stratified_squamous_ker_img.png",
+                      "note": " ",
+                      "x": 600,
+                      "y": 100,
+                      "collapsed": false,
+                      "learned": false,
+                      "questions": [
+                        {
+                          "type": "multiple",
+                          "question": "Biểu mô lát tầng sừng hóa thường gặp ở đâu?",
+                          "options": ["Da", "Thực quản", "Khí quản", "Bàng quang"],
+                          "answer": "Da",
+                          "img_answer": "images/stratified_squamous_ker_img.png"
+                        }
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "id": "stratified_cuboidal",
+                  "title": "Biểu mô vuông tầng",
+                  "icon": "🔬",
+                  "img": "images/stratified_cuboidal.png",
+                  "note": "Gồm nhiều lớp TB chồng lên nhau, lớp TB bề mặt có dạng khối vuông. Có ở BM võng mạc thể mi, ống bài xuất tuyến mồ hôi.",
+                  "x": 480,
+                  "y": 20,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type": "fill",
+                      "question": "Biểu mô vuông tầng thường xuất hiện ở đâu?",
+                      "answer": "BM võng mạc thể mi, ống bài xuất tuyến mồ hôi",
+                      "img_answer": "images/stratified_cuboidal.png"
+                    }
+                  ],
+                  "children": []
+                },
+                {
+                  "id": "stratified_columnar",
+                  "title": "Biểu mô trụ tầng",
+                  "icon": "🔬",
+                  "img": "images/stratified_columnar.png",
+                  "note": "Gồm nhiều hàng TB xếp chồng, lớp TB bề mặt dạng hình trụ. VD: kết mạc mắt, niệu đạo tiền liệt, lòng các ống bài xuất lớn…",
+                  "x": 480,
+                  "y": 40,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type": "fill",
+                      "question": "Biểu mô trụ tầng thường xuất hiện ở đâu?",
+                      "answer": "Kết mạc mắt, niệu đạo tiền liệt, lòng các ống bài xuất lớn",
+                      "img_answer": "images/stratified_columnar.png"
+                    }
+                  ],
+                  "children": []
+                },
+                {
+                  "id": "transitional",
+                  "title": "Biểu mô đa dạng tầng",
+                  "icon": "🔬",
+                  "img": "images/transitional.png",
+                  "note": "Còn gọi là BM chuyển dạng/BM niệu. Lớp lòng ống các đài thận, bể thận, niệu quản, bàng quang. Hình dáng BM có thể thay đổi, rõ nhất là ở bàng quang, tùy vào tình trạng căng/rỗng. Cấu tạo gồm nhiều hàng TB tựa trên màng đáy: TB lớp đáy hình vuông/đa diện, TB hình vợt ở giữa, TB đa diện trên cùng.",
+                  "x": 480,
+                  "y": 60,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type": "multiple",
+                      "question": "Biểu mô đa dạng tầng còn được gọi là gì?",
+                      "options": ["BM chuyển dạng", "BM lát đơn", "BM trụ giả tầng", "BM vuông tầng"],
+                      "answer": "BM chuyển dạng",
+                      "img_answer": "images/transitional.png"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "id": "transitional_img_1",
+                      "title": "Biểu mô đa dạng tầng",
+                      "icon": "🖼️",
+                      "img": "images/transitional_img_1.png",
+                      "note": " ",
+                      "x": 600,
+                      "y": 60,
+                      "collapsed": false,
+                      "learned": false,
+                      "questions": [
+                        {
+                          "type": "fill",
+                          "question": "Biểu mô đa dạng tầng thường xuất hiện ở đâu?",
+                          "answer": "Đài thận, bể thận, niệu quản, bàng quang",
+                          "img_answer": "images/transitional_img_1.png"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "id": "transitional_img_2",
+                      "title": "Biểu mô đa dạng tầng",
+                      "icon": "🖼️",
+                      "img": "images/transitional_img_2.png",
+                      "note": " ",
+                      "x": 600,
+                      "y": 80,
+                      "collapsed": false,
+                      "learned": false,
+                      "questions": [
+                        {
+                          "type": "multiple",
+                          "question": "Hình dáng biểu mô đa dạng tầng thay đổi rõ nhất ở đâu?",
+                          "options": ["Bàng quang", "Thực quản", "Khí quản", "Da"],
+                          "answer": "Bàng quang",
+                          "img_answer": "images/transitional_img_2.png"
+                        }
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "glandular_epi",
+          "title": "Biểu mô tuyến",
+          "icon": "🧪",
+          "img": "images/glandular_epi.png",
+          "note": "Tạo thành các tuyến có khả năng tổng hợp và chế tiết. Bao gồm: Tuyến ngoại tiết (nước bọt, mồ hôi) và Tuyến nội tiết (giáp, thượng thận). Có hầu hết đặc điểm TB BM + các đặc điểm chuyên biệt.",
+          "x": 240,
+          "y": 0,
+          "collapsed": false,
+          "learned": false,
+          "questions": [
+            {
+              "type": "multiple",
+              "question": "Biểu mô tuyến có chức năng chính gì?",
+              "options": ["Tiết chế", "Bảo vệ", "Dẫn truyền", "Co rút"],
+              "answer": "Tiết chế",
+              "img_answer": "images/glandular_epi.png"
+            }
+          ],
+          "children": [
+            {
+              "id": "glandular_img_1",
+              "title": "Biểu mô tuyến",
+              "icon": "🖼️",
+              "img": "images/glandular_img_1.png",
+              "note": " ",
+              "x": 360,
+              "y": 0,
+              "collapsed": false,
+              "learned": false,
+              "questions": [
+                {
+                  "type": "fill",
+                  "question": "Biểu mô tuyến bao gồm những loại nào?",
+                  "answer": "Tuyến ngoại tiết và Tuyến nội tiết",
+                  "img_answer": "images/glandular_img_1.png"
+                }
+              ],
+              "children": []
+            },
+            {
+              "id": "glandular_img_2",
+              "title": "Biểu mô tuyến",
+              "icon": "🖼️",
+              "img": "images/glandular_img_2.png",
+              "note": " ",
+              "x": 360,
+              "y": 20,
+              "collapsed": false,
+              "learned": false,
+              "questions": [
+                {
+                  "type": "multiple",
+                  "question": "Biểu mô tuyến có đặc điểm gì so với biểu mô thông thường?",
+                  "options": ["Chỉ có ở da", "Có đặc điểm chuyên biệt", "Không có tính phân cực", "Có mạch máu"],
+                  "answer": "Có đặc điểm chuyên biệt",
+                  "img_answer": "images/glandular_img_2.png"
+                }
+              ],
+              "children": []
+            },
+            {
+              "id": "exo",
+              "title": "Tuyến ngoại tiết",
+              "icon": "🔬",
+              "img": "images/exo.png",
+              "note": "Tuyến đổ chất tiết lên bề mặt da/ống/khoang tự nhiên. Sản phẩm thường tác động trực tiếp đến cấu trúc mà nó tiếp xúc. Một số BM phủ có chức năng chế tiết nhưng không tạo tuyến. Cấu tạo gồm 2 phần: Phần chế tiết, Ống bài xuất.",
+              "x": 360,
+              "y": 40,
+              "collapsed": false,
+              "learned": false,
+              "questions": [
+                {
+                  "type": "multiple",
+                  "question": "Tuyến ngoại tiết có mấy kiểu chế tiết?",
+                  "options": ["1", "2", "3", "4"],
+                  "answer": "3",
+                  "img_answer": "images/exo.png"
+                },
+                {
+                  "type": "fill",
+                  "question": "Một ví dụ về tuyến ngoại tiết là ...?",
+                  "answer": "Tuyến nước bọt",
+                  "img_answer": "images/exo.png"
+                }
+              ],
+              "children": [
+                {
+                  "id": "exo_img",
+                  "title": "Tuyến ngoại tiết",
+                  "icon": "🖼️",
+                  "img": "images/exo_img.png",
+                  "note": " ",
+                  "x": 480,
+                  "y": 40,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type": "multiple",
+                      "question": "Sản phẩm của tuyến ngoại tiết tác động như thế nào?",
+                      "options": ["Tác động trực tiếp đến cấu trúc tiếp xúc", "Ngấm vào máu", "Tạo chuyển động", "Dẫn truyền xung"],
+                      "answer": "Tác động trực tiếp đến cấu trúc tiếp xúc",
+                      "img_answer": "images/exo_img.png"
+                    }
+                  ],
+                  "children": []
+                },
+                {
+                  "id": "exo_types",
+                  "title": "Các kiểu chế tiết",
+                  "icon": "📋",
+                  "img": "images/exo_types.png",
+                  "note": "TB tuyến ngoại tiết có 3 kiểu chế tiết.",
+                  "x": 480,
+                  "y": 60,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type": "fill",
+                      "question": "Ba kiểu chế tiết của tuyến ngoại tiết là gì?",
+                      "answer": "Toàn vẹn, bán hủy, toàn hủy",
+                      "img_answer": "images/exo_types.png"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "id": "exo_merocrine",
+                      "title": "Chế tiết kiểu toàn vẹn",
+                      "icon": "🔬",
+                      "img": "images/exo_merocrine.png",
+                      "note": "Chất tiết hình thành liên tục dạng khối phân tử nhỏ, sau tiết TB không thay đổi cấu trúc. VD: tuyến nước bọt, tụy ngoại tiết.",
+                      "x": 600,
+                      "y": 60,
+                      "collapsed": false,
+                      "learned": false,
+                      "questions": [
+                        {
+                          "type": "fill",
+                          "question": "Ví dụ về tuyến ngoại tiết kiểu toàn vẹn là gì?",
+                          "answer": "Tuyến nước bọt, tụy ngoại tiết",
+                          "img_answer": "images/exo_merocrine.png"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "id": "exo_apocrine",
+                      "title": "Chế tiết kiểu bán hủy",
+                      "icon": "🔬",
+                      "img": "images/exo_apocrine.png",
+                      "note": "Chất tiết là các khối lớn, khi tiết một phần cực ngọn TB mất đi. VD: tuyến mồ hôi đổ vào nang lông, tuyến vú.",
+                      "x": 600,
+                      "y": 80,
+                      "collapsed": false,
+                      "learned": false,
+                      "questions": [
+                        {
+                          "type": "fill",
+                          "question": "Ví dụ về tuyến ngoại tiết kiểu bán hủy là gì?",
+                          "answer": "Tuyến mồ hôi đổ vào nang lông, tuyến vú",
+                          "img_answer": "images/exo_apocrine.png"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "id": "exo_holocrine",
+                      "title": "Tuyến toàn hủy",
+                      "icon": "🔬",
+                      "img": "images/exo_holocrine.png",
+                      "note": "Toàn bộ TB phân hủy tạo thành sản phẩm tiết. VD: tuyến bã ở da.",
+                      "x": 600,
+                      "y": 100,
+                      "collapsed": false,
+                      "learned": false,
+                      "questions": [
+                        {
+                          "type": "fill",
+                          "question": "Ví dụ về tuyến ngoại tiết kiểu toàn hủy là gì?",
+                          "answer": "Tuyến bã ở da",
+                          "img_answer": "images/exo_holocrine.png"
+                        }
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "id": "exo_tubular",
+                  "title": "Kiểu ống",
+                  "icon": "🔬",
+                  "img": "images/exo_tubular.png",
+                  "note": "Phần chế tiết và bài xuất tạo thành ống dài gồm 5 loại.",
+                  "x": 480,
+                  "y": 120,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type @": "multiple",
+                      "question": "Tuyến ngoại tiết kiểu ống có bao nhiêu loại?",
+                      "options": ["3", "4", "5", "6"],
+                      "answer": "5",
+                      "img_answer": "images/exo_tubular.png"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "id": "tubular_straight",
+                      "title": "Tuyến ống đơn thẳng",
+                      "icon": "🔬",
+                      "img": "images/tubular_straight.png",
+                      "note": "VD: tuyến Lieberkuhn ở ruột.",
+                      "x": 600,
+                      "y": 120,
+                      "collapsed": false,
+                      "learned": false,
+                      "questions": [
+                        {
+                          "type": "fill",
+                          "question": "Ví dụ về tuyến ống đơn thẳng là gì?",
+                          "answer": "Tuyến Lieberkuhn ở ruột",
+                          "img_answer": "images/tubular_straight.png"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "id": "tubular_branched",
+                      "title": "Tuyến ống thẳng chia nhánh",
+                      "icon": "🔬",
+                      "img": "images/tubular_branched.png",
+                      "note": "VD: tuyến đáy vị, tuyến tử cung.",
+                      "x": 600,
+                      "y": 140,
+                      "collapsed": false,
+                      "learned": false,
+                      "questions": [
+                        {
+                          "type": "fill",
+                          "question": "Ví dụ về tuyến ống thẳng chia nhánh là gì?",
+                          "answer": "Tuyến đáy vị, tuyến tử cung",
+                          "img_answer": "images/tubular_branched.png"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "id": "tubular_coiled",
+                      "title": "Tuyến ống đơn cong queo",
+                      "icon": "🔬",
+                      "img": "images/tubular_coiled.png",
+                      "note": "VD: tuyến mồ hôi.",
+                      "x": 600,
+                      "y": 160,
+                      "collapsed": false,
+                      "learned": false,
+                      "questions": [
+                        {
+                          "type": "fill",
+                          "question": "Ví dụ về tuyến ống đơn cong queo là gì?",
+                          "answer": "Tuyến mồ hôi",
+                          "img_answer": "images/tubular_coiled.png"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "id": "tubular_coiled_branched",
+                      "title": "Tuyến ống cong queo phân nhánh",
+                      "icon": "🔬",
+                      "img": "images/tubular_coiled_branched.png",
+                      "note": "VD: tuyến môn vị/tâm vị.",
+                      "x": 600,
+                      "y": 180,
+                      "collapsed": false,
+                      "learned": false,
+                      "questions": [
+                        {
+                          "type": "fill",
+                          "question": "Ví dụ về tuyến ống cong queo phân nhánh là gì?",
+                          "answer": "Tuyến môn vị/tâm vị",
+                          "img_answer": "images/tubular_coiled_branched.png"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "id": "tubular_complex",
+                      "title": "Tuyến ống phức tạp",
+                      "icon": "🔬",
+                      "img": "images/tubular_complex.png",
+                      "note": "VD: tuyến Brunner tá tràng.",
+                      "x": 600,
+                      "y": 200,
+                      "collapsed": false,
+                      "learned": false,
+                      "questions": [
+                        {
+                          "type": "fill",
+                          "question": "Ví dụ về tuyến ống phức tạp là gì?",
+                          "answer": "Tuyến Brunner tá tràng",
+                          "img_answer": "images/tubular_complex.png"
+                        }
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "id": "exo_acinar",
+                  "title": "Kiểu túi",
+                  "icon": "🔬",
+                  "img": "images/exo_acinar.png",
+                  "note": "Phần chế tiết phình ra thành nang tuyến, phần bài xuất có dạng ống.",
+                  "x": 480,
+                  "y": 160,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type": "multiple",
+                      "question": "Phần chế tiết của tuyến túi có đặc điểm gì?",
+                      "options": ["Dạng ống dài", "Phình ra thành nang tuyến", "Tạo mạng lưới", "Rải rác trong mô"],
+                      "answer": "Phình ra thành nang tuyến",
+                      "img_answer": "images/exo_acinar.png"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "id": "exo_acinar_img",
+                      "title": "Tuyến túi",
+                      "icon": "🖼️",
+                      "img": "images/exo_acinar_img.png",
+                      "note": " ",
+                      "x": 600,
+                      "y": 160,
+                      "collapsed": false,
+                      "learned": false,
+                      "questions": [
+                        {
+                          "type": "fill",
+                          "question": "Phần bài xuất của tuyến túi có dạng gì?",
+                          "answer": "Dạng ống",
+                          "img_answer": "images/exo_acinar_img.png"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "id": "acinar_simple",
+                      "title": "Túi tuyến đơn",
+                      "icon": "🔬",
+                      "img": "images/acinar_simple.png",
+                      "note": "1 ống bài xuất và 1 nang tuyến. VD: tuyến niệu đạo nhỏ.",
+                      "x": 600,
+                      "y": 180,
+                      "collapsed": false,
+                      "learned": false,
+                      "questions": [
+                        {
+                          "type": "fill",
+                          "question": "Ví dụ về túi tuyến đơn là gì?",
+                          "answer": "Tuyến niệu đạo nhỏ",
+                          "img_answer": "images/acinar_simple.png"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "id": "acinar_branched",
+                      "title": "Tuyến túi phân nhánh",
+                      "icon": "🔬",
+                      "img": "images/acinar_branched.png",
+                      "note": "Vài nang tuyến đổ chung vào 1 ống bài xuất. VD: tuyến bã.",
+                      "x": 600,
+                      "y": 200,
+                      "collapsed": false,
+                      "learned": false,
+                      "questions": [
+                        {
+                          "type": "fill",
+                          "question": "Ví dụ về tuyến túi phân nhánh là gì?",
+                          "answer": "Tuyến bã",
+                          "img_answer": "images/acinar_branched.png"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "id": "acinar_complex",
+                      "title": "Tuyến túi phức tạp (kiểu chùm nho)",
+                      "icon": "🔬",
+                      "img": "images/acinar_complex.png",
+                      "note": "Nhiều nang tuyến + nhiều ống bài xuất. VD: tụy ngoại tiết.",
+                      "x": 600,
+                      "y": 220,
+                      "collapsed": false,
+                      "learned": false,
+                      "questions": [
+                        {
+                          "type": "fill",
+                          "question": "Ví dụ về tuyến túi phức tạp là gì?",
+                          "answer": "Tụy ngoại tiết",
+                          "img_answer": "images/acinar_complex.png"
+                        }
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "endo",
+              "title": "Tuyến nội tiết",
+              "icon": "🔬",
+              "img": "images/endo.png",
+              "note": "Tạo ra các chất ngấm vào mô liên kết và đi vào máu (nội tiết tố/Hormon). Hormon có tác dụng đặc hiệu. Cấu tạo gồm 2 phần: TB chế tiết + Mạch máu. Ngoài ra, một số TB nằm phân tán có thể tiết ra được Hormon.",
+              "x": 360,
+              "y": 80,
+              "collapsed": false,
+              "learned": false,
+              "questions": [
+                {
+                  "type": "multiple",
+                  "question": "Tuyến nội tiết tiết sản phẩm vào đâu?",
+                  "options": ["Ống dẫn", "Máu", "Khoang cơ thể", "Chất nền"],
+                  "answer": "Máu",
+                  "img_answer": "images/endo.png"
+                },
+                {
+                  "type": "fill",
+                  "question": "Tuyến giáp thuộc kiểu tuyến nội tiết nào?",
+                  "answer": "Kiểu túi",
+                  "img_answer": "images/endo_follicle.png"
+                }
+              ],
+              "children": [
+                {
+                  "id": "endo_img_1",
+                  "title": "Tuyến nội tiết",
+                  "icon": "🖼️",
+                  "img": "images/endo_img_1.png",
+                  "note": " ",
+                  "x": 480,
+                  "y": 80,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type": "fill",
+                      "question": "Sản phẩm của tuyến nội tiết được gọi là gì?",
+                      "answer": "Nội tiết tố/Hormon",
+                      "img_answer": "images/endo_img_1.png"
+                    }
+                  ],
+                  "children": []
+                },
+                {
+                  "id": "endo_img_2",
+                  "title": "Tuyến nội tiết",
+                  "icon": "🖼️",
+                  "img": "images/endo_img_2.png",
+                  "note": " ",
+                  "x": 480,
+                  "y": 100,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type": "multiple",
+                      "question": "Hormon của tuyến nội tiết có đặc điểm gì?",
+                      "options": ["Tác dụng đặc hiệu", "Tác dụng ngẫu nhiên", "Không tác dụng", "Chỉ tác dụng cục bộ"],
+                      "answer": "Tác dụng đặc hiệu",
+                      "img_answer": "images/endo_img_2.png"
+                    }
+                  ],
+                  "children": []
+                },
+                {
+                  "id": "endo_protein",
+                  "title": "TB tiết sản phẩm protein",
+                  "icon": "🔬",
+                  "img": "images/endo_protein.png",
+                  "note": "Có lưới nội bào hạt phát triển, tính phân cực rõ, hạt chế tiết tích tụ ở cực ngọn TB.",
+                  "x": 480,
+                  "y": 120,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type": "fill",
+                      "question": "Tế bào tiết sản phẩm protein có đặc điểm gì về lưới nội bào?",
+                      "answer": "Lưới nội bào hạt phát triển",
+                      "img_answer": "images/endo_protein.png"
+                    }
+                  ],
+                  "children": []
+                },
+                {
+                  "id": "endo_steroid",
+                  "title": "TB chế tiết sản phẩm Steroid",
+                  "icon": "🔬",
+                  "img": "images/endo_steroid.png",
+                  "note": "Giàu lưới nội bào trơn, không có hạt chế tiết, nằm trong bào tương.",
+                  "x": 480,
+                  "y": 140,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type": "fill",
+                      "question": "Tế bào tiết sản phẩm steroid có đặc điểm gì về lưới nội bào?",
+                      "answer": "Giàu lưới nội bào trơn",
+                      "img_answer": "images/endo_steroid.png"
+                    }
+                  ],
+                  "children": []
+                },
+                {
+                  "id": "endo_secretion_types",
+                  "title": "Phân loại theo cách tiết",
+                  "icon": "📋",
+                  "img": "images/endo_secretion_types.png",
+                  "note": "Gồm 2 loại: Cận tiết và Tự tiết.",
+                  "x": 480,
+                  "y": 160,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type": "multiple",
+                      "question": "Tuyến nội tiết có mấy loại cách tiết?",
+                      "options": ["1", "2", "3", "4"],
+                      "answer": "2",
+                      "img_answer": "images/endo_secretion_types.png"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "id": "endo_paracrine",
+                      "title": "Cận tiết (paracrine secretion)",
+                      "icon": "🔬",
+                      "img": "images/endo_paracrine.png",
+                      "note": "Các TB tiết Hormon tác dụng lên các TB lân cận.",
+                      "x": 600,
+                      "y": 160,
+                      "collapsed": false,
+                      "learned": false,
+                      "questions": [
+                        {
+                          "type": "fill",
+                          "question": "Cận tiết là gì?",
+                          "answer": "TB tiết Hormon tác dụng lên các TB lân cận",
+                          "img_answer": "images/endo_paracrine.png"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "id": "endo_autocrine",
+                      "title": "Tự tiết (autocrine secretion)",
+                      "icon": "🔬",
+                      "img": "images/endo_autocrine.png",
+                      "note": "TB tiết Hormon tác dụng lên chính bản thân mình. VD: TB nội tiết BM dạ dày ruột, đường hô hấp.",
+                      "x": 600,
+                      "y": 180,
+                      "collapsed": false,
+                      "learned": false,
+                      "questions": [
+                        {
+                          "type": "fill",
+                          "question": "Ví dụ về tự tiết là gì?",
+                          "answer": "TB nội tiết BM dạ dày ruột, đường hô hấp",
+                          "img_answer": "images/endo_autocrine.png"
+                        }
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "id": "endo_cord",
+                  "title": "Tuyến kiểu lưới",
+                  "icon": "🔬",
+                  "img": "images/endo_cord.png",
+                  "note": "Là cơ quan nội tiết chuyên biệt. Phần chế tiết: các dãy TB chế tiết nối với nhau dạng mạng lưới/hợp thành khối TB. Các mạch máu nằm xen kẽ với các dãy TB. VD: tuyến yên, thượng thận, cận giáp.",
+                  "x": 480,
+                  "y": 200,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type": "fill",
+                      "question": "Ví dụ về tuyến kiểu lưới là gì?",
+                      "answer": "Tuyến yên, thượng thận, cận giáp",
+                      "img_answer": "images/endo_cord.png"
+                    }
+                  ],
+                  "children": []
+                },
+                {
+                  "id": "endo_follicle",
+                  "title": "Tuyến kiểu túi",
+                  "icon": "🔬",
+                  "img": "images/endo_follicle.png",
+                  "note": "Cấu tạo gồm nhiều túi kín có dạng nang tuyến. Các mạch máu xung quanh nang phong phú. VD: tuyến giáp.",
+                  "x": 480,
+                  "y": 220,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type": "fill",
+                      "question": "Ví dụ về tuyến kiểu túi là gì?",
+                      "answer": "Tuyến giáp",
+                      "img_answer": "images/endo_follicle.png"
+                    }
+                  ],
+                  "children": []
+                },
+                {
+                  "id": "endo_diffuse",
+                  "title": "Tuyến kiểu tản mác",
+                  "icon": "🔬",
+                  "img": "images/endo_diffuse.png",
+                  "note": "TB chế tiết tạo thành nhóm nhỏ đứng rải rác, xen kẽ với mô khác. VD: tuyến kẽ tinh hoàn.",
+                  "x": 480,
+                  "y": 240,
+                  "collapsed": false,
+                  "learned": false,
+                  "questions": [
+                    {
+                      "type": "fill",
+                      "question": "Ví dụ về tuyến kiểu tản mác là gì?",
+                      "answer": "Tuyến kẽ tinh hoàn",
+                      "img_answer": "images/endo_diffuse.png"
+                    }
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "id": "endo_secretion_img",
+              "title": "Quá trình chế tiết",
+              "icon": "🖼️",
+              "img": "images/endo_secretion_img.png",
+              "note": " ",
+              "x": 360,
+              "y": 100,
+              "collapsed": false,
+              "learned": false,
+              "questions": [
+                {
+                  "type": "multiple",
+                  "question": "Quá trình chế tiết của tuyến nội tiết liên quan đến cấu trúc nào?",
+                  "options": ["TB chế tiết và mạch máu", "Ống bài xuất", "Vi nhung mao", "Lông chuyển"],
+                  "answer": "TB chế tiết và mạch máu",
+                  "img_answer": "images/endo_secretion_img.png"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conn",
+      "title": "Mô liên kết",
+      "icon": "🧬",
+      "img": "images/conn.png",
+      "note": "MLK chính thức, mô sụn, mô xương",
+      "x": 120,
+      "y": 60,
+      "collapsed": false,
+      "learned": false,
+      "questions": [
+        {
+          "type": "multiple",
+          "question": "Mô liên kết gồm những loại nào?",
+          "options": ["MLK chính thức, sụn, xương", "Máu, thần kinh, cơ", "Biểu mô, cơ, thần kinh", "Xương, cơ, thần kinh"],
+          "answer": "MLK chính thức, sụn, xương",
+          "img_answer": "images/conn.png"
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "mus",
+      "title": "Mô cơ",
+      "icon": "💪",
+      "img": "images/mus.png",
+      "note": "Cử động",
+      "x": 120,
+      "y": 120,
+      "collapsed": false,
+      "learned": false,
+      "questions": [
+        {
+          "type": "multiple",
+          "question": "Chức năng chính của mô cơ là gì?",
+          "options": ["Cử động", "Dẫn truyền", "Chế tiết", "Bao phủ"],
+          "answer": "Cử động",
+          "img_answer": "images/mus.png"
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "ner",
+      "title": "Mô thần kinh",
+      "icon": "🧠",
+      "img": "images/ner.png",
+      "note": "Dẫn truyền",
+      "x": 120,
+      "y": 180,
+      "collapsed": false,
+      "learned": false,
+      "questions": [
+        {
+          "type": "multiple",
+          "question": "Chức năng chính của mô thần kinh là gì?",
+          "options": ["Dẫn truyền xung thần kinh", "Tiết hormon", "Co cơ", "Chống đỡ"],
+          "answer": "Dẫn truyền xung thần kinh",
+          "img_answer": "images/ner.png"
+        }
+      ],
+      "children": []
+    },
+    {
+      "id": "blood",
+      "title": "Mô máu & bạch huyết",
+      "icon": "🩸",
+      "img": "images/blood.png",
+      "note": "Vận chuyển & miễn dịch",
+      "x": 120,
+      "y": 240,
+      "collapsed": false,
+      "learned": false,
+      "questions": [
+        {
+          "type": "multiple",
+          "question": "Mô máu và bạch huyết có chức năng gì?",
+          "options": ["Vận chuyển & miễn dịch", "Bao phủ", "Co cơ", "Dẫn truyền"],
+          "answer": "Vận chuyển & miễn dịch",
+          "img_answer": "images/blood.png"
+        }
+      ],
+      "children": []
+    }
+  ],
+  "questions": [
+    {
+      "type": "multiple",
+      "question": "Cơ thể người có bao nhiêu loại mô chính?",
+      "options": ["3", "4", "5", "6"],
+      "answer": "5",
+      "img_answer": "images/tissue_root.jpg"
+    },
+    {
+      "type": "fill",
+      "question": "Năm loại mô chính trong cơ thể người là gì?",
+      "answer": "Biểu mô, Mô liên kết, Mô cơ, Mô thần kinh, Mô máu và bạch huyết",
+      "img_answer": "images/tissue_root.jpg"
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
