@@ -641,7 +641,7 @@ gNodes.addEventListener("pointerdown", (e) => {
   if (!g) return;
   const id = g.getAttribute("data-id");
   state.selectedId = id;
-  draggedNode = findById(id); // Ensure reference to the correct node in state.data
+  draggedNode = findById(id); // Reference the correct node in state.data
   dragStart = { x: e.clientX, y: e.clientY };
   e.preventDefault();
 });
@@ -658,8 +658,8 @@ svg.addEventListener("pointermove", (e) => {
 
 window.addEventListener("pointerup", () => {
   if (draggedNode) {
-    save(); // Save the new position to localStorage
-    render(); // Ensure the UI reflects the updated data
+    save(); // Save updated positions into JSON
+    render(); // Ensure UI reflects the updated data
   }
   draggedNode = null;
   dragStart = null;
